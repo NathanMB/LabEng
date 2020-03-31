@@ -1,0 +1,17 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div style="text-align: center">
+        <h3>Pagina Inicial</h3>
+        Seja bem vindo, {{ user.first_name }} <br><br>
+        <a href="{% url 'exit_user' %}"> Sair</a>
+    </div>
+
+</body>
+</html>

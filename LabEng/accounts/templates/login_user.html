@@ -1,0 +1,50 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/estilo.css' %}">
+    <title>HU | Login</title>
+</head>
+
+<body>
+    <!-- ID name-name CLASS name_name -->
+
+    <header id="header">
+        <h1>LAB ENG</h1>
+        <h5>SISTEMA HOSPITALAR</h5>
+    </header>
+
+
+    <section id="login-area">
+
+        <h3 id="login-header">LOGIN</h3>
+
+        <!--Form-->
+        <form id="data-fields" method="post">
+            {% csrf_token %}
+            <div id="id-field">
+                <label id="id">Email</label>
+                {{ form.email }}
+            </div>
+
+            <div id="password-field">
+                <label id="password">Senha</label>
+                {{ form.password }}
+            </div>
+
+            <button id="submit-button" type="submit" form="data-fields">ENTRAR</button>
+        </form>
+        <!--End form-->
+
+
+    </section>
+
+    <footer>
+        <h3 id="footer-message">SISTEMA DESENVOLVIDO PARA A DISCIPLINA DE LABORATÓRIO DE ENGENHARIA</h3>
+    </footer>
+</body>
+
+</html>
