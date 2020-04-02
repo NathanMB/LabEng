@@ -58,3 +58,7 @@ div#body-bg_image::after {
     color: white;
     font-weight: bold;
 }
+
+#footer-style-space{
+    height: 10px;
+}
