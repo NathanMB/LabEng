@@ -1,0 +1,60 @@
+/*Fake background-image opacity
+--------------------------------*/
+div#body-bg_image {
+    width: 100%;
+    height: 100%;
+    display: block;
+    position: relative;
+}
+
+div#body-bg_image::after {
+    content: "";
+    background: url("../img/hospital-background-images-png-6.png");
+    opacity: 0.4;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    position: absolute;
+    z-index: -1;
+}
+
+/*General*/
+#coluna-esquerda{
+    background: #2266b5;
+}
+
+/*avatar*/
+#avatar{
+    border-radius: 80%;
+    width: 54px;
+    height: 54px;
+    background: #479df8;
+}
+
+/*Info user*/
+.info_user {
+    color: white;
+    font-weight: bold;
+}
+
+#nome, #funcao, #crm{
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    font-size: small;
+}
+
+/*Menu*/
+#area-titulo-menu{
+    color: white;
+    background: #1a508f;
+    text-transform: uppercase;
+}
+
+.btn_col_esq{
+    width: 100%;
+    background: #1a589f;
+    text-transform: uppercase;
+    color: white;
+    font-weight: bold;
+}

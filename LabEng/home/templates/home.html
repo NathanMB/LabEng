@@ -12,21 +12,108 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
-    <link rel="stylesheet" href="{% static 'css/asdasdasdadf/afaf.txt' %}">
+    <link rel="stylesheet" href="{% static 'css/estiloV2.css' %}">
 </head>
 
 <body>
-
-    <div class="container">
+    <div id="body-bg_image">
         <div class="row">
-            <div class="col-12 bg-primary">
-                <h1>Qualquer coisa</h1>
+            <!--Coluna esquerda da tela-->
+            <div id="coluna-esquerda" class="col-3">
+                <!--Linha do avatar-->
+                <div class="row">
+                    <!--Area do avatar-->
+                    <div id="avatar-area" class="col-12 d-flex justify-content-center pt-4">
+                        <!--link para imagem-->
+                        <img id="avatar" src="{%static 'img/user-3-128x128.png' %}" alt="">
+                    </div>
+                </div>
 
-                <input type="text" class="">
+                <!--Linhas das informações do avatar
+                -----------Nome Função CRM------------->
+                <!--Nome-->
+                <div class="row">
+                    <div id="area-nome" class="col-12 d-flex justify-content-center info_user">
+                        <h4 id="nome">chapatín</h4>
+                    </div>
+                </div>
+                <!--end nome-->
 
-                <button>Entrar</button>
+                <!--Função-->
+                <div class="row">
+                    <div id="area-funcao" class="col-12 d-flex justify-content-center info_user">
+                        <h6 id="funcao">médico residente</h6>
+                    </div>
+                </div>
+                <!--end função-->
+
+                <!--CRM-->
+                <div class="row">
+                    <div id="area-crm" class="col-12 d-flex justify-content-center info_user">
+                        <h6 id="crm">crm:0000</h6>
+                    </div>
+                </div>
+                <!--end crm-->
+
+
+                <!--Linhas do menu de navegação
+                -------------Paciente Exames Laudos--------------------->
+
+                <!--Titulo do menu-->
+                <div class="row mt-5 mb-5">
+                    <div id="area-titulo-menu" class="col-12 d-flex justify-content-center">
+                        <h3>menu</h3>
+                    </div>
+                </div>
+                <!--end titulo-->
+
+                <!--Pacientes-->
+                <div class="row mb-1">
+                    <button type="button" class="col-12 btn btn_col_esq">pacientes</button>
+                </div>
+                <!--end pacientes-->
+
+                <!--Exames-->
+                <div class="row mb-1">
+                    <button type="button" class="col-12 btn btn_col_esq">exames</button>
+                </div>
+                <!--end exames-->
+
+                <!--Laudos-->
+                <div class="row mb-5">
+                    <button type="button" class="col-12 btn btn_col_esq">laudos</button>
+                </div>
+                <!--end laudos-->
+
+                <!--Opções
+                --------- Minha conta Sair-->
+                <div id="area-opc" class="row mt-5">
+                    <div class="col-7 d-flex justify-content-end">
+                        <button type="button" class="btn btn-primary text-white text-uppercase">minha conta</button>
+                    </div>
+
+                    <div class="col-5 d-flex justify-content-start">
+                        <button type="button" class="btn btn-primary pl-4 pr-4 text-white text-uppercase">sair</button>
+                    </div>
+                </div>
+                <!--end opções-->
+
+                <!--Logo-->
+                <div class="row mt-5 d-flex justify-content-center text-white text-uppercase">
+                    <h1 class="">lab eng</h1>
+                </div>
+
+                <div class="row d-flex justify-content-center mb-5 text-white text-uppercase">
+                    <h6>sistema hospitalar</h6>
+                </div>
+            </div>
+            <!--end coluna esquerda-->
+
+            <!--Coluna direita-->
+            <div class="col-9">
             </div>
         </div>
+
     </div>
 
     <!-- Optional JavaScript -->
