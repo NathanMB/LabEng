@@ -19,7 +19,7 @@ def login_user(request):
                 return redirect('home')
             else:
                 messages.error(request, 'Email ou senha incorreto')
-                return render(request, 'login_user.html')
+                return render(request, 'login_user.html', args)
 
         else:
             return render(request, 'login_user.html', args)
