@@ -24,15 +24,21 @@
 
         <!--Form-->
         <form id="data-fields" method="post">
+            <!--Back-End-->
             {% csrf_token %}
+            <!--Back-End-->
             <div id="id-field">
                 <label id="id">Email</label>
+                <!--Back-End-->
                 {{ form.email }}
+                <!--Back-End-->
             </div>
 
             <div id="password-field">
                 <label id="password">Senha</label>
+                <!--Back-End-->
                 {{ form.password }}
+                <!--Back-End-->
             </div>
 
             <button id="submit-button" type="submit" form="data-fields">ENTRAR</button>
