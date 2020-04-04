@@ -6,8 +6,8 @@ from .models import Medico
 
 class MedicoCreationForm(UserCreationForm):
     email = forms.CharField(min_length=6)
-    first_name = forms.CharField(min_length=6)
-    last_name = forms.CharField(min_length=6)
+    first_name = forms.CharField(min_length=3)
+    last_name = forms.CharField(min_length=3)
     password1 = forms.CharField()
     password2 = forms.CharField()
 
@@ -25,6 +25,7 @@ class MedicoCreationForm(UserCreationForm):
         raise forms.ValidationError('Esse email já existe')
 
 class MedicoChangeForm(UserChangeForm):
+    crm = forms.CharField(min_length=5)
     email = forms.CharField(min_length=6)
     first_name = forms.CharField(min_length=6)
     last_name = forms.CharField(min_length=6)
@@ -32,7 +33,7 @@ class MedicoChangeForm(UserChangeForm):
 
     class Meta:
         model = Medico
-        fields = ['first_name', 'last_name', 'email']
+        fields = ['first_name', 'last_name', 'email', 'crm']
 
 class MedicoAuthenticationForm(AuthenticationForm):
     email = forms.EmailField(

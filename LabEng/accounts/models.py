@@ -29,7 +29,7 @@ class Medico(AbstractBaseUser, PermissionsMixin):
         ('Teacher', 'Teacher')
     ]
 
-
+    crm = models.CharField(unique=True, max_length=15, null=True)
     email = models.EmailField(unique=True, max_length=60)
     first_name = models.CharField(max_length=100)
     last_name = models.CharField(max_length=100)

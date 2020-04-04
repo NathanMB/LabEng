@@ -15,7 +15,7 @@ class MedicoAdmin(UserAdmin):
 
     fieldsets = (
         ('Campos do Modelo', {
-            'fields': ('email', 'first_name', 'last_name', 'date_joined', 'password', 'occupation'),
+            'fields': ('crm', 'email', 'first_name', 'last_name', 'date_joined', 'password', 'occupation'),
         }),
         ('Permissions', {
             'fields': ('is_staff', 'is_active'),
