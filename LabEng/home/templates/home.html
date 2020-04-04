@@ -42,7 +42,7 @@
                 <!--Função-->
                 <div class="row">
                     <div id="area-funcao" class="col-12 d-flex justify-content-center info_user">
-                        <h6 id="funcao">médico residente</h6>
+                        <h6 id="funcao">Cargo: {{request.user.occupation}}</h6>
                     </div>
                 </div>
                 <!--end função-->
@@ -50,7 +50,7 @@
                 <!--CRM-->
                 <div class="row">
                     <div id="area-crm" class="col-12 d-flex justify-content-center info_user">
-                        <h6 id="crm">crm:0000</h6>
+                        <h6 id="crm">CRM: {{request.user.crm}}</h6>
                     </div>
                 </div>
                 <!--end crm-->
@@ -69,13 +69,13 @@
 
                 <!--Pacientes-->
                 <div class="row mb-1">
-                    <button type="button" class="col-12 btn btn_col_esq">pacientes</button>
+                    <a href="{% url 'listPatients' %}"  class="col-12 btn btn_col_esq">pacientes</a>
                 </div>
                 <!--end pacientes-->
 
                 <!--Exames-->
                 <div class="row mb-1">
-                    <button type="button" class="col-12 btn btn_col_esq">exames</button>
+                    <a href="{% url 'listExams' %}"  class="col-12 btn btn_col_esq">exames</a>
                 </div>
                 <!--end exames-->
 
