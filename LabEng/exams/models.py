@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth import get_user_model
+import os
 
 
 class Patient(models.Model):
@@ -11,7 +12,7 @@ class Patient(models.Model):
         ('Preto', 'Preto'),
         ('Branco', 'Branco'),
         ('Pardo', 'Pardo'),
-        ('Indio', 'Inidio'),
+        ('Indio', 'Indio'),
         ('Amarelo', 'Amarelo')
     ]
     first_name = models.CharField(max_length=30, blank=False, null=False)
@@ -38,11 +39,15 @@ class Exam(models.Model):
 
 class Report(models.Model):
     exam = models.ForeignKey('Exam', blank=False, null=False, on_delete=models.CASCADE)
-    #resident = models.ForeignKey('Resident', blank=False, null=False, on_delete=models.CASCADE)
+    medico = models.ForeignKey('accounts.Medico', blank=False, null=True, on_delete=models.CASCADE)
     approved = models.BooleanField()
     realization_date = models.DateField(null=False)
-    diagnostic = models.CharField(max_length=300)
+    diagnostic = models.CharField(max_length=100)
 
-    """def get_upload_handler(instance, filename):
-        return os.path.join('nomemedico', 'reports', 'nomearquivo')
-    file = models.ImageField(null=False)"""
+    def get_upload_handler(instance, filename):
+        email = instance.medico.email
+        return os.path.join('static', 'medicos', email, 'reports', filename)
+        #'D:\LabEng\LabEng\static\medicos\zika@gmail.com\reports\relatorio01.pdf'
+
+
+    file = models.FileField(upload_to=get_upload_handler, null=True)
