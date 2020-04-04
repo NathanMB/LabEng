@@ -24,10 +24,17 @@ class MedicoManager(BaseUserManager):
         return user
 
 class Medico(AbstractBaseUser, PermissionsMixin):
+    OCCUPATION_CHOICES = [
+        ('Resident', 'Resident'),
+        ('Teacher', 'Teacher')
+    ]
+
+
     email = models.EmailField(unique=True, max_length=60)
     first_name = models.CharField(max_length=100)
     last_name = models.CharField(max_length=100)
     date_joined = models.DateTimeField('date joined', default=timezone.now)
+    occupation = models.CharField(max_length=10, choices=OCCUPATION_CHOICES, blank=False, null=True)
 
     is_staff = models.BooleanField('staff_status', default=False)#Pode se logar como admin
     is_active = models.BooleanField('user_active', default=True)
