@@ -100,13 +100,13 @@ div#body-bg_image::after {
     text-transform: uppercase;
 }
 
-/*cadastro pacientes*/
+/*cadastro*/
 
-#area-nome, #area-cpf, #area-nascimento {
+#area-nome, #area-cpf, #area-nascimento, #area-data, #area-crm, #area-recomendacao {
     font-weight: bold;
 }
 
-#area-nome input, #area-cpf input, #area-nascimento input {
+#area-nome input, #area-cpf input, #area-nascimento input, #area-data input, #area-recomendacao input, #area-crm input {
     border: 2px solid rgb(237, 242, 247);
     background: rgb(255, 255, 255);
 }
