@@ -124,42 +124,29 @@
                             <!--Area formulario-->
                             <div class="row">
                                 <div class="col-12">
-                                    <form action="/action_page.php" method="get">
+                                    <form method="POST">
+                                        {% csrf_token %}
                                         <div class="row">
                                             <div class="col-6">
                                                 <!--Area CRM-->
                                                 <div id="area-crm" class="row pt-3">
                                                     <div class="col-2">
-                                                        <label for="fname">CRM:</label>
+                                                        <label for="fname">Paciente:</label>
                                                     </div>
                                                     <div class="col-5">
-                                                        <input type="text" id="lname" name="lname">
+                                                        {{ form.patient }}
                                                     </div>
                                                 </div>
                                                 <!--end crm-->
-
-                                                <!--Area cpf-->
-                                                <div id="area-cpf" class="row pt-3">
-                                                    <div class="col-2">
-                                                        <label for="fname">CPF:</label>
-                                                    </div>
-                                                    <div class="col-5">
-                                                        <input type="text" id="lname" name="lname">
-                                                    </div>
-                                                </div>
-                                                <!--end cpf-->
-
 
                                             </div>
                                             <div class="col-6">
                                                 <!--Area Data-->
                                                 <div id="area-data" class="row">
                                                     <div class="row pt-3">
-                                                        <div class="col-6">
+                                                        <div class="col-12">
                                                             <label for="fname">Data do exame: </label>
-                                                        </div>
-                                                        <div class="col-5 ">
-                                                            <input type="text" id="lname" name="lname">
+                                                            <span>{{ form.appointment_date }}</span>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -168,12 +155,11 @@
                                                 <!--Area recomendação-->
                                                 <div id="area-recomendacao" class="row">
                                                     <div class="row pt-3">
-                                                        <div class="col-6">
-                                                            <label for="fname">Recomendação: </label>
+                                                        <div class="col-12">
+                                                            <label for="fname">Tipo de Exame </label>
+                                                            <span>{{ form.exam_type }}</span>
                                                         </div>
-                                                        <div class="col-5 ">
-                                                            <input type="text" id="lname" name="lname" >
-                                                        </div>
+
                                                     </div>
                                                 </div>
                                                 <!--end recomendação-->
@@ -190,23 +176,19 @@
 
                                                         <div class="input-group mb-3">
                                                             <div class="input-group-prepend">
-                                                                <label class="input-group-text"
-                                                                    for="inputGroupSelect01">Exame</label>
+                                                                <label class="input-group-text" for="inputGroupSelect01">
+                                                                    Recomendações
+                                                                </label>
                                                             </div>
-                                                            <select class="custom-select" id="inputGroupSelect01">
-                                                                <option selected></option>
-                                                                <option value="1">ECOCARDIOGRAMA</option>
-                                                                <option value="2">ELETROCARDIOGRAMA</option>
-																<option value="3">MAPA</option>
-																<option value="3">HOLTER</option>
-                                                            </select>
                                                         </div>
+                                                        {{ form.recommendations }}
 
                                                     </div>
                                                 </div>
                                                 <!--end area exame-->
                                             </div>
                                         </div>
+                                        <button type="submit" class="btn m-1">Enviar</button>
                                     </form>
                                 </div>
                             </div>

@@ -117,6 +117,7 @@
                     <div class="row">
                         <div class="col-12 d-flex justify-content-center p-5">
                             <h1>Lista de Pacientes</h1>
+
                         </div>
                     </div>
 
@@ -140,33 +141,17 @@
                                 <!--end-->
 
                                 <tbody>
+                                {% for patient in patients %}
                                     <tr>
                                         <td><input type="checkbox"></td>
-                                        <td>1</td>
-                                        <td>000.000.000-00</td>
-                                        <td>Otto</td>
-                                        <td>M</td>
-                                        <td>18</td>
-                                        <td>branco</td>
+                                        <td>{{ forloop.counter }}</td>
+                                        <td>{{ patient.cpf }}</td>
+                                        <td>{{ patient }}</td>
+                                        <td>{{ patient.sex }}</td>
+                                        <td>{{ patient.age }}</td>
+                                        <td>{{ patient.ethinicity }}</td>
                                     </tr>
-                                    <tr>
-                                        <td><input type="checkbox"></td>
-                                        <td>2</td>
-                                        <td>111.111.111-11</td>
-                                        <td>Maria</td>
-                                        <td>F</td>
-                                        <td>27</td>
-                                        <td>pardo</td>
-                                    </tr>
-                                    <tr>
-                                        <td><input type="checkbox"></td>
-                                        <td>2</td>
-                                        <td>222.222.222-22</td>
-                                        <td>Mario</td>
-                                        <td>M</td>
-                                        <td>58</td>
-                                        <td>negro</td>
-                                    </tr>
+                                {% endfor %}
                                 </tbody>
                             </table>
                             <!--end tabela-->

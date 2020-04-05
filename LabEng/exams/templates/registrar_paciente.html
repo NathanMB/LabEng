@@ -121,16 +121,28 @@
                     <!--Area formulario-->
                     <div class="row">
                         <div class="col-12">
-                            <form action="/action_page.php" method="get">
+                            <form  method="POST">
+                                {% csrf_token %}
                                 <!--Area nome-->
                                 <div id="area-nome" class="row">
                                     <div class="col-1">
                                         <label for="fname">Nome:</label>
                                     </div>
                                     <div class="col-11">
-                                        <input type="text" id="lname" name="lname">
+                                        {{ form.first_name }}
                                     </div>
                                 </div>
+
+                                <div id="area-sobrenome" class="row">
+                                    <div class="col-1">
+                                        <label for="surname">Sobrenome: </label>
+                                    </div>
+                                    <div class="col-11">
+                                        {{ form.last_name }}
+                                    </div>
+                                </div>
+
+
                                 <!--end nome-->
 
                                 <div class="row">
@@ -141,7 +153,7 @@
                                                 <label for="fname">CPF:</label>
                                             </div>
                                             <div class="col-6 ">
-                                                <input type="text" id="lname" name="lname">
+                                                {{ form.cpf }}
                                             </div>
                                         </div>
                                         <!--end cpf-->
@@ -155,11 +167,7 @@
                                                         <label class="input-group-text"
                                                             for="inputGroupSelect01">Sexo</label>
                                                     </div>
-                                                    <select class="custom-select" id="inputGroupSelect01">
-                                                        <option selected></option>
-                                                        <option value="1">Masculino</option>
-                                                        <option value="2">Feminino</option>
-                                                    </select>
+                                                    {{ form.sex }}
                                                 </div>
 
                                             </div>
@@ -169,16 +177,16 @@
                                     </div>                                       
 
 									<!--Area Data nascimento-->
-                                        <div id="area-nascimento" class="row">
-                                            <div class="row pt-3">
-                                                <div class="col-6">
-                                                    <label for="fname">Data de Nascimento</label>
-                                                </div>
-                                                <div class="col-5 ">
-                                                    <input type="text" id="lname" name="lname">
-                                                </div>
+                                    <div id="area-nascimento" class="col-6">
+                                        <div class="row pt-3">
+                                            <div class="col-">
+                                                <label for="fname">Data de Nascimento</label>
+                                            </div>
+                                            <div class="col-6 pl-1">
+                                                 <span>{{ form.birth_date }}</span>
                                             </div>
                                         </div>
+                                    </div>
                                     <!--End data-->
 								</div>
 								<div class="row">
@@ -189,15 +197,12 @@
                                             <div class="col-6">
                                                 <div class="input-group mb-3">
                                                     <div class="input-group-prepend">
-                                                        <label class="input-group-text"
-                                                            for="inputGroupSelect01">Etnia</label>
+                                                        <label class="input-group-text"for="inputGroupSelect01">
+                                                            Etnia
+                                                        </label>
+                                                        {{ form.ethinicity }}
                                                     </div>
-                                                    <select class="custom-select" id="inputGroupSelect01">
-                                                        <option selected></option>
-                                                        <option value="1">Branco</option>
-                                                        <option value="2">Negro</option>
-                                                        <option value="1">Pardo</option>
-                                                    </select>
+
                                                 </div>
 
                                             </div>
@@ -206,9 +211,12 @@
 
                                     </div>
                                 </div>
+                                <button type="submit" class="btn m-1"> Enviar </button>
+
                             </form>
 
                         </div>
+
                     </div>
                     <!--end formulario-->
 
@@ -218,7 +226,6 @@
                     <div class="row">
                         <div class="col-12 d-flex justify-content-end">
                             <a href="{%url 'listPatients'%}"><button type="button" class="btn  m-1">Voltar</button></a>
-
                         </div>
                     </div>
                     <!--end botoes-->

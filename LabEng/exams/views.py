@@ -1,5 +1,7 @@
 from django.shortcuts import render, redirect
 from .forms import PatientForm, ExamForm
+from .models import Patient, Exam
+from datetime import datetime, date
 
 # Create your views here.
 
@@ -18,6 +20,8 @@ def registerExam(request):
     args = {'form': form}
 
     if form.is_valid():
+        exam = form.save(commit=False)
+        exam.doctor = request.user
         form.save()
         return redirect('listExams')
 
@@ -25,7 +29,23 @@ def registerExam(request):
 
 
 def listPatients(request):
-    return render(request, 'listar_pacientes.html')
+    today = str(date.today())
+    today = datetime.strptime(today, "%Y-%m-%d")
+
+    patients = Patient.objects.all()
+
+    for patient in patients:
+        birth_date = str(patient.birth_date)
+        birth_date = datetime.strptime(birth_date, "%Y-%m-%d")
+
+        age = int(((today - birth_date).days)/365)
+        patient.age = age
+
+    args = {'patients': patients}
+    return render(request, 'listar_pacientes.html', args)
 
 def listExams(request):
-    return render(request, 'listar_exames.html')
+    exams = Exam.objects.all().filter(doctor=request.user)
+    args = {'exams': exams}
+
+    return render(request, 'listar_exames.html', args)

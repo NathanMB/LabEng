@@ -16,6 +16,7 @@
 </head>
 
 <body>
+
     <div id="body-bg_image">
         <div class="row">
             <!--Coluna esquerda da tela-->
@@ -131,6 +132,7 @@
                                         <th scope="col"></th>
                                         <th scope="col">#</th>
                                         <th scope="col">CPF</th>
+                                        <th scope="col">NOME</th>
                                         <th scope="col">CRM</th>
                                         <th scope="col">DATA</th>
                                         <th scope="col">RECOMENDAÇÕES</th>
@@ -140,32 +142,20 @@
                                 <!--end-->
 
                                 <tbody>
+                                {% for exam in exams %}
                                     <tr>
+
                                         <td><input type="checkbox"></td>
                                         <td>1</td>
-                                        <td>000.000.000-00</td>
-                                        <td>00.00000-00</td>
-                                        <td>12/05/2020</td>
-                                        <td>Jejum 12 horas</td>
-                                        <td>Endoscopia</td>
+                                        <td>{{ exam.patient.cpf }}</td>
+                                        <td>{{ exam.patient }}</td>
+                                        <td>{{ exam.doctor.crm }}</td>
+                                        <td>{{ exam.appointment_date }}</td>
+                                        <td>{{ exam.recommendations }}</td>
+                                        <td>{{ exam.exam_type }}</td>
+
                                     </tr>
-                                    <tr>
-                                        <td><input type="checkbox"></td>
-                                        <td>2</td>
-                                        <td>111.111.111-11</td>
-                                        <td>11.11111-11</td>
-                                        <td>12/05/2020</td>
-                                        <td>Jejum 12 horas</td>
-                                        <td>Endoscopia</td>
-                                    </tr>
-                                    <tr><td><input type="checkbox"></td>
-                                        <td>3</td>
-                                        <td>222.222.222-22</td>
-                                        <td>22.22222-22</td>
-                                        <td>12/05/2020</td>
-                                        <td>Jejum 12 horas</td>
-                                        <td>Endoscopia</td>
-                                    </tr>
+                                {% endfor %}
                                 </tbody>
                             </table>
                             <!--end tabela-->

@@ -15,9 +15,11 @@ class Patient(models.Model):
         ('Indio', 'Indio'),
         ('Amarelo', 'Amarelo')
     ]
+    cpf = models.CharField(max_length=14, null=True)
     first_name = models.CharField(max_length=30, blank=False, null=False)
     last_name = models.CharField(max_length=30, blank=False, null=False)
     sex = models.CharField(max_length=1, choices=SEX_CHOICES, blank=False, null=False)
+    birth_date = models.DateField(null=True)
     ethinicity = models.CharField(max_length=10, choices=ETHINICITY_CHOICES, blank=False, null=False)
 
     def __str__(self):
