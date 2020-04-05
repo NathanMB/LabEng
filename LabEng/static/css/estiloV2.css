@@ -1,5 +1,6 @@
 /*Fake background-image opacity
 --------------------------------*/
+
 div#body-bg_image {
     width: 100%;
     height: 100%;
@@ -20,12 +21,31 @@ div#body-bg_image::after {
 }
 
 /*General*/
-#coluna-esquerda{
+
+#coluna-esquerda {
     background: #2266b5;
+    height: 100%;
+}
+
+#coluna-direita {
+    height: 100%;
+}
+
+#coluna-direita button {
+    background: white;
+    color: #195190;
+    border: 1px solid #195190;
+}
+
+#coluna-direita h1 {
+    text-transform: uppercase;
+    color: #195190;
+    letter-spacing: 2px;
 }
 
 /*avatar*/
-#avatar{
+
+#avatar {
     border-radius: 80%;
     width: 54px;
     height: 54px;
@@ -33,25 +53,27 @@ div#body-bg_image::after {
 }
 
 /*Info user*/
+
 .info_user {
     color: white;
     font-weight: bold;
 }
 
-#nome, #funcao, #crm{
+#nome, #funcao, #crm {
     letter-spacing: 1px;
     text-transform: uppercase;
     font-size: small;
 }
 
 /*Menu*/
-#area-titulo-menu{
+
+#area-titulo-menu {
     color: white;
     background: #1a508f;
     text-transform: uppercase;
 }
 
-.btn_col_esq{
+.btn_col_esq {
     width: 100%;
     background: #1a589f;
     text-transform: uppercase;
@@ -59,6 +81,36 @@ div#body-bg_image::after {
     font-weight: bold;
 }
 
-#footer-style-space{
+#footer-style-space {
     height: 10px;
+}
+
+/*Table*/
+
+.table th {
+    background: #195190;
+    color: white;
+    text-transform: uppercase;
+}
+
+.table tr {
+    background: white;
+    color: #195190;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+/*cadastro pacientes*/
+
+#area-nome, #area-cpf, #area-nascimento {
+    font-weight: bold;
+}
+
+#area-nome input, #area-cpf input, #area-nascimento input {
+    border: 2px solid rgb(237, 242, 247);
+    background: rgb(255, 255, 255);
+}
+
+#area-nome input {
+    width: 50%;
 }
