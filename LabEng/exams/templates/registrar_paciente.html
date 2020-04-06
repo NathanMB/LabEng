@@ -67,6 +67,12 @@
                 </div>
                 <!--end titulo-->
 
+                <!--Home-->
+                <div class="row mb-1">
+                    <a href="{% url 'home' %}" class="col-12 btn btn_col_esq">home</a>
+                </div>
+                <!--end home-->
+
                 <!--Pacientes-->
                 <div class="row mb-1">
                     <a href="{% url 'listPatients' %}" class="col-12 btn btn_col_esq">pacientes</a>
@@ -88,12 +94,13 @@
                 <!--Opções
                 --------- Minha conta Sair-->
                 <div id="area-opc" class="row mt-5">
-                    <div class="col-7 d-flex justify-content-end">
+                    <div class="col-md-6 d-flex justify-content-center mt-1">
                         <button type="button" class="btn btn-primary text-white text-uppercase">minha conta</button>
                     </div>
 
-                    <div class="col-5 d-flex justify-content-start">
-                       <a href=" {% url 'exit_user'%}" class="btn btn-primary pl-4 pr-4 text-white text-uppercase">sair</a>
+                    <div class="col-md-6 d-flex justify-content-center mt-1">
+                        <a href=" {% url 'exit_user'%}"
+                            class="btn btn-primary pl-4 pr-4 text-white text-uppercase">sair</a>
                     </div>
                 </div>
                 <!--end opções-->
@@ -121,7 +128,7 @@
                     <!--Area formulario-->
                     <div class="row">
                         <div class="col-12">
-                            <form  method="POST">
+                            <form method="POST">
                                 {% csrf_token %}
                                 <!--Area nome-->
                                 <div id="area-nome" class="row">
@@ -157,8 +164,8 @@
                                             </div>
                                         </div>
                                         <!--end cpf-->
-										
-										<!--Area sexo-->
+
+                                        <!--Area sexo-->
                                         <div id="area-sexo" class="row mt-5">
                                             <div class="col-6">
 
@@ -174,22 +181,22 @@
                                         </div>
                                         <!--end area sexo-->
 
-                                    </div>                                       
+                                    </div>
 
-									<!--Area Data nascimento-->
+                                    <!--Area Data nascimento-->
                                     <div id="area-nascimento" class="col-6">
                                         <div class="row pt-3">
                                             <div class="col-">
                                                 <label for="fname">Data de Nascimento</label>
                                             </div>
                                             <div class="col-6 pl-1">
-                                                 <span>{{ form.birth_date }}</span>
+                                                <span>{{ form.birth_date }}</span>
                                             </div>
                                         </div>
                                     </div>
                                     <!--End data-->
-								</div>
-								<div class="row">
+                                </div>
+                                <div class="row">
                                     <div class="col-6">
 
                                         <!--Area etnia-->
@@ -197,7 +204,7 @@
                                             <div class="col-6">
                                                 <div class="input-group mb-3">
                                                     <div class="input-group-prepend">
-                                                        <label class="input-group-text"for="inputGroupSelect01">
+                                                        <label class="input-group-text" for="inputGroupSelect01">
                                                             Etnia
                                                         </label>
                                                         {{ form.ethinicity }}

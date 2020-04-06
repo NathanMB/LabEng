@@ -1,56 +1,90 @@
 {% load static %}
-<!DOCTYPE html>
-<html lang="pt-br">
+<!doctype html>
+<html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{% static 'css/estilo.css' %}">
     <title>HU | Login</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'css/estiloV2.css' %}">
 </head>
 
 <body>
-    <!-- ID name-name CLASS name_name -->
+    <div id="body-bg_image">
+        <!--Header-->
+        <header class="text-white">
+            <div class="row bg-primary pl-2">
+                <div class="col-12">
+                    <h1>LAB ENG</h1>
+                </div>
 
-    <header id="header">
-        <h1>LAB ENG</h1>
-        <h5>SISTEMA HOSPITALAR</h5>
-    </header>
-
-
-    <section id="login-area">
-
-        <h3 id="login-header">LOGIN</h3>
-
-        <!--Form-->
-        <form id="data-fields" method="post">
-            <!--Back-End-->
-            {% csrf_token %}
-            <!--Back-End-->
-            <div id="id-field">
-                <label id="id">Email</label>
-                <!--Back-End-->
-                {{ form.email }}
-                <!--Back-End-->
             </div>
 
-            <div id="password-field">
-                <label id="password">Senha</label>
-                <!--Back-End-->
-                {{ form.password }}
-                <!--Back-End-->
+            <div class="row bg-primary pl-2">
+                <div class="col-12">
+                    <h5>SISTEMA HOSPITALAR</h5>
+                </div>
+            </div>
+        </header>
+        <!--End Header-->
+
+        <!--Login section-->
+        <section>
+            <div class="row d-flex justify-content-center mt-5">
+                <h5>Login</h5>
             </div>
 
-            <button id="submit-button" type="submit" form="data-fields">ENTRAR</button>
-        </form>
-        <!--End form-->
+            <div class="row d-flex justify-content-center">
+                <!--Form-->
+                <form id="data-fields" method="post">
+                    <!--Back-End-->
+                    {% csrf_token %}
+                    <!--Back-End-->
+                    <div id="id-field">
+                        <label id="id">Email</label>
+                        <!--Back-End-->
+                        {{ form.email }}
+                        <!--Back-End-->
+                    </div>
 
+                    <div id="password-field">
+                        <label id="password">Senha</label>
+                        <!--Back-End-->
+                        {{ form.password }}
+                        <!--Back-End-->
+                    </div>
+                </form>
+                <!--End form-->
+            </div>
 
-    </section>
+            <div class="row d-flex justify-content-center mt-5">
+                <button id="submit-button" class="btn btn-primary" type="submit" form="data-fields">ENTRAR</button>
+            </div>
+        </section>
+        <!--End login section-->
+        <footer class="bg-primary text-white">
+            <div class="row d-flex justify-content-center mt-5 p-3">
+                <h3 id="footer-message">SISTEMA DESENVOLVIDO PARA A DISCIPLINA DE LABORATÓRIO DE ENGENHARIA</h3>
+            </div>
+        </footer>
 
-    <footer>
-        <h3 id="footer-message">SISTEMA DESENVOLVIDO PARA A DISCIPLINA DE LABORATÓRIO DE ENGENHARIA</h3>
-    </footer>
+    </div>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
 </body>
 
 </html>

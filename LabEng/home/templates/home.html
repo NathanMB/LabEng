@@ -67,6 +67,12 @@
                 </div>
                 <!--end titulo-->
 
+                <!--Home-->
+                <div class="row mb-1">
+                    <a href="{% url 'home' %}" class="col-12 btn btn_col_esq">home</a>
+                </div>
+                <!--end home-->
+
                 <!--Pacientes-->
                 <div class="row mb-1">
                     <a href="{% url 'listPatients' %}" class="col-12 btn btn_col_esq">pacientes</a>
@@ -88,12 +94,13 @@
                 <!--Opções
                 --------- Minha conta Sair-->
                 <div id="area-opc" class="row mt-5">
-                    <div class="col-7 d-flex justify-content-end">
+                    <div class="col-md-6 d-flex justify-content-center mt-1">
                         <button type="button" class="btn btn-primary text-white text-uppercase">minha conta</button>
                     </div>
 
-                    <div class="col-5 d-flex justify-content-start">
-                        <a href=" {% url 'exit_user'%}" class="btn btn-primary pl-4 pr-4 text-white text-uppercase">sair</a>
+                    <div class="col-md-6 d-flex justify-content-center mt-1">
+                        <a href=" {% url 'exit_user'%}"
+                            class="btn btn-primary pl-4 pr-4 text-white text-uppercase">sair</a>
                     </div>
                 </div>
                 <!--end opções-->
@@ -115,7 +122,6 @@
 
             </div>
         </div>
-
     </div>
 
     <!-- Optional JavaScript -->

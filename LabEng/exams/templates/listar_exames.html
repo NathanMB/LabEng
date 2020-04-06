@@ -68,6 +68,12 @@
                 </div>
                 <!--end titulo-->
 
+                <!--Home-->
+                <div class="row mb-1">
+                    <a href="{% url 'home' %}" class="col-12 btn btn_col_esq">home</a>
+                </div>
+                <!--end home-->
+
                 <!--Pacientes-->
                 <div class="row mb-1">
                     <a href="{% url 'listPatients' %}" class="col-12 btn btn_col_esq">pacientes</a>
@@ -89,12 +95,13 @@
                 <!--Opções
                 --------- Minha conta Sair-->
                 <div id="area-opc" class="row mt-5">
-                    <div class="col-7 d-flex justify-content-end">
+                    <div class="col-md-6 d-flex justify-content-center mt-1">
                         <button type="button" class="btn btn-primary text-white text-uppercase">minha conta</button>
                     </div>
 
-                    <div class="col-5 d-flex justify-content-start">
-                        <a href=" {% url 'exit_user'%}" class="btn btn-primary pl-4 pr-4 text-white text-uppercase">sair</a>
+                    <div class="col-md-6 d-flex justify-content-center mt-1">
+                        <a href=" {% url 'exit_user'%}"
+                            class="btn btn-primary pl-4 pr-4 text-white text-uppercase">sair</a>
                     </div>
                 </div>
                 <!--end opções-->
@@ -129,7 +136,6 @@
                                 <!--Atributos-->
                                 <thead>
                                     <tr>
-                                        <th scope="col"></th>
                                         <th scope="col">#</th>
                                         <th scope="col">CPF</th>
                                         <th scope="col">NOME</th>
@@ -137,15 +143,14 @@
                                         <th scope="col">DATA</th>
                                         <th scope="col">RECOMENDAÇÕES</th>
                                         <th scope="col">EXAME</th>
+                                        <th scope="col">OPÇÕES</th>
                                     </tr>
                                 </thead>
                                 <!--end-->
 
                                 <tbody>
-                                {% for exam in exams %}
+                                    {% for exam in exams %}
                                     <tr>
-
-                                        <td><input type="checkbox"></td>
                                         <td>1</td>
                                         <td>{{ exam.patient.cpf }}</td>
                                         <td>{{ exam.patient }}</td>
@@ -153,9 +158,20 @@
                                         <td>{{ exam.appointment_date }}</td>
                                         <td>{{ exam.recommendations }}</td>
                                         <td>{{ exam.exam_type }}</td>
+                                        <td>
+                                            <div class="row">
+                                                <div class="col-lg-6">
+                                                    <button type="button" class="btn ">Editar</button>
+                                                </div>
 
+                                                <div class="col-lg-6">
+                                                    <div class=""><button type="button" class="btn">Deletar</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </td>
                                     </tr>
-                                {% endfor %}
+                                    {% endfor %}
                                 </tbody>
                             </table>
                             <!--end tabela-->
@@ -165,10 +181,7 @@
                     <!--Area de botoes-->
                     <div class="row">
                         <div class="col-6">
-                            <button type="button" class="btn">Deletar</button>
-                            <button type="button" class="btn ">Editar</button>
-                            <a href="{%url 'registerExam'%}"><button type="button"
-                                    class="btn ">Cadastrar</button></a>
+                            <a href="{%url 'registerExam'%}"><button type="button" class="btn ">Cadastrar</button></a>
                         </div>
 
                         <div class="col-6 d-flex justify-content-end">

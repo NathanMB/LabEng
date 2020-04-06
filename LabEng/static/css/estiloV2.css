@@ -18,6 +18,7 @@ div#body-bg_image::after {
     right: 0;
     position: absolute;
     z-index: -1;
+    width: 100vw;
 }
 
 /*General*/
@@ -41,6 +42,12 @@ div#body-bg_image::after {
     text-transform: uppercase;
     color: #195190;
     letter-spacing: 2px;
+}
+
+/*Tela Login*/
+
+footer {
+    margin-top: 260px;
 }
 
 /*avatar*/
