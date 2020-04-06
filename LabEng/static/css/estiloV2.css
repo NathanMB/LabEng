@@ -45,13 +45,11 @@ div#body-bg_image::after {
 }
 
 /*Tela Login*/
-
 footer {
     margin-top: 260px;
 }
 
 /*avatar*/
-
 #avatar {
     border-radius: 80%;
     width: 54px;
@@ -60,7 +58,6 @@ footer {
 }
 
 /*Info user*/
-
 .info_user {
     color: white;
     font-weight: bold;
@@ -73,7 +70,6 @@ footer {
 }
 
 /*Menu*/
-
 #area-titulo-menu {
     color: white;
     background: #1a508f;
@@ -93,7 +89,6 @@ footer {
 }
 
 /*Table*/
-
 .table th {
     background: #195190;
     color: white;
@@ -108,7 +103,6 @@ footer {
 }
 
 /*cadastro*/
-
 #area-nome, #area-cpf, #area-nascimento, #area-data, #area-crm, #area-recomendacao {
     font-weight: bold;
 }
