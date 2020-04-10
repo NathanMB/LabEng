@@ -32,7 +32,7 @@ class PatientForm(ModelForm):
         }))
 
     birth_date = forms.DateField(
-        widget=forms.SelectDateWidget(years=BIRTH_YEAR_CHOICES)
+        widget=forms.DateInput()
     )
 
 

@@ -128,7 +128,14 @@
                     <!--Area formulario-->
                     <div class="row ">
                         <div class="col-12 d-flex justify-content-center">
-                            <form method="POST">
+                            <form method="POST" id="form-pacientes" class="p-5 rounded">
+                                <div class="row mb-3">
+                                    <div class="col d-flex justify-content-center">
+                                        <h4 class="text-white">Preencha o formulário</h4>
+                                    </div>
+
+                                </div>
+
                                 {% csrf_token %}
                                 <!--Area nome-->
                                 <div id="area-nome" class="row">
@@ -140,7 +147,7 @@
                                     </div>
                                 </div>
 
-                                <div id="area-sobrenome" class="row">
+                                <div id="area-sobrenome" class="row pt-2">
                                     <div class="col-1">
                                         <label for="surname">Sobrenome: </label>
                                     </div>
@@ -151,7 +158,7 @@
                                 <!--end nome-->
 
                                 <!--Area cpf-->
-                                <div id="area-cpf" class="row pt-3">
+                                <div id="area-cpf" class="row pt-2 ">
                                     <div class="col-1">
                                         <label for="fname">CPF:</label>
                                     </div>
@@ -161,68 +168,74 @@
                                 </div>
                                 <!--end cpf-->
 
-                                <!--Area sexo-->
-                                <div id="area-sexo" class="row mt-5">
-                                    <div class="col-6">
-                                        <div class="input-group mb-3">
-                                            <div class="input-group-prepend">
-                                                <label class="input-group-text" for="inputGroupSelect01">Sexo</label>
-                                            </div>
-                                            {{ form.sex }}
-                                        </div>
-
-                                    </div>
-                                </div>
-                                <!--end area sexo-->
-
-
                                 <!--Area Data nascimento-->
-                                <div id="area-nascimento" class="col-6">
-                                    <div class="row pt-3">
-                                        <div class="col-">
-                                            <label for="fname">Data de Nascimento</label>
-                                        </div>
-                                        <div class="col-6 pl-1">
-                                            <span>{{ form.birth_date }}</span>
-                                        </div>
+                                <div id="area-nascimento" class="row pt-2">
+                                    <div class="col-1">
+                                        <label for="fname">Data de Nascimento</label>
+                                    </div>
+                                    <div class="col-11">
+                                        <span>{{ form.birth_date }}</span>
                                     </div>
                                 </div>
                                 <!--End data-->
-                        </div>
-                        <div class="row">
-                            <div class="col-6">
 
-                                <!--Area etnia-->
-                                <div id="area-etnia" class="row mt-4">
+                                <div class="row">
                                     <div class="col-6">
-                                        <div class="input-group mb-3">
-                                            <div class="input-group-prepend">
-                                                <label class="input-group-text" for="inputGroupSelect01">
-                                                    Etnia
-                                                </label>
-                                                {{ form.ethinicity }}
+                                        <!--Area sexo-->
+                                        <div id="area-sexo" class="row">
+                                            <div class="col">
+                                                <div class="input-group mb-3">
+                                                    <div class="input-group-prepend">
+                                                        <label class="input-group-text font-weight-bold text-dark"
+                                                            for="inputGroupSelect01">
+                                                            Sexo
+                                                        </label>
+                                                        {{ form.sex }}
+                                                    </div>
+
+                                                </div>
+
                                             </div>
-
                                         </div>
+                                        <!--end area sexo-->
+                                    </div>
 
+                                    <div class="col-6">
+                                        <!--Area etnia-->
+                                        <div id="area-etnia" class="row">
+                                            <div class="col">
+                                                <div class="input-group mb-3">
+                                                    <div class="input-group-prepend">
+                                                        <label class="input-group-text font-weight-bold text-dark"
+                                                            for="inputGroupSelect01">
+                                                            Etnia
+                                                        </label>
+                                                        {{ form.ethinicity }}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!--end etnia-->
                                     </div>
                                 </div>
-                                <!--end etnia-->
-                            </div>
-                        </div>
-                        <button type="submit" class="btn m-1"> Enviar </button>
-                        </form>
-                    </div>
-                </div>
-                <!--end formulario-->
 
-                <!--Area de botoes-->
-                <div class="row">
-                    <div class="col-12 d-flex justify-content-end">
-                        <a href="{%url 'listPatients'%}"><button type="button" class="btn  m-1">Voltar</button></a>
+                                <div class="row">
+                                    <div class="col-6 ">
+                                        <a href="{%url 'listPatients'%}"><button type="button"
+                                                class="btn  m-1">Voltar</button></a>
+                                    </div>
+
+                                    <div class="col-6 d-flex justify-content-end">
+                                        <button type="submit" class="btn m-1"> Enviar </button>
+                                    </div>
+
+                                </div>
+                            </form>
+                            <!--end formulario-->
+                        </div>
                     </div>
                 </div>
-                <!--end botoes-->
+
             </div>
         </div>
 
