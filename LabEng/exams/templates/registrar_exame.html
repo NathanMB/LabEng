@@ -98,7 +98,8 @@
                     </div>
 
                     <div class="col-md-6 d-flex justify-content-center mt-1">
-                        <a href=" {% url 'exit_user'%}" class="btn btn-primary pl-4 pr-4 text-white text-uppercase">sair</a>
+                        <a href=" {% url 'exit_user'%}"
+                            class="btn btn-primary pl-4 pr-4 text-white text-uppercase">sair</a>
                     </div>
                 </div>
                 <!--end opções-->
@@ -134,18 +135,29 @@
                                         {% csrf_token %}
                                         <div class="row">
                                             <div class="col-6">
-                                                <!--Area CRM-->
-                                                <div id="area-crm" class="row pt-3">
+                                                <!--Area Médico-->
+                                                <div id="area-nome_medico" class="row pt-3">
                                                     <div class="col-2">
-                                                        <label for="fname">Paciente:</label>
+                                                        <label for="fname" class="font-weight-bold">Médico:</label>
                                                     </div>
                                                     <div class="col-5">
                                                         {{ form.patient }}
                                                     </div>
                                                 </div>
-                                                <!--end crm-->
+                                                <!--end Médico-->
+
+                                                <!--Area Médico-->
+                                                <div id="area-paciente_nome" class="row pt-3">
+                                                    <div class="col-2">
+                                                        <label for="fname" class="font-weight-bold">Paciente:</label>
+                                                    </div>
+                                                    <div class="col-5">
+                                                        {{ form.patient }}
+                                                    </div>
+                                                </div>
+                                                <!--end Médico-->
                                             </div>
-                                            
+
                                             <div class="col-6">
                                                 <!--Area Data-->
                                                 <div id="area-data" class="row">
@@ -181,7 +193,8 @@
 
                                                         <div class="input-group mb-3">
                                                             <div class="input-group-prepend">
-                                                                <label class="input-group-text" for="inputGroupSelect01">
+                                                                <label class="input-group-text"
+                                                                    for="inputGroupSelect01">
                                                                     Recomendações
                                                                 </label>
                                                             </div>
