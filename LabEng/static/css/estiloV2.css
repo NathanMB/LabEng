@@ -104,10 +104,9 @@ footer {
     background: white;
     color: #195190;
     font-weight: bold;
-    text-transform: uppercase;
+    font-size: small;
+    /*text-transform: uppercase;*/
 }
-
-
 
 /*cadastro*/
 
@@ -116,12 +115,11 @@ footer {
 }
 
 #area-nome input, #area-sobrenome input, #area-cpf input, #area-nascimento input, #area-data input, #area-recomendacao input, #area-crm input {
-    border: 2px solid rgb(237, 242, 247);
+    border: 2px solid rgb(214, 214, 214);
     background: rgb(255, 255, 255);
 }
 
 #area-nome input, #area-sobrenome input {
-    width: 40%;
-    margin-left: 15px;
+    width: 70%;
+    margin-left: 40px;
 }
-
