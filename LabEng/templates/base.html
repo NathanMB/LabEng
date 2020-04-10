@@ -1,0 +1,147 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>HU | Home</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="{% static 'css/estiloV2.css' %}">
+</head>
+
+<body>
+    <div id="body-bg_image">
+        <div class="row">
+            <!--Coluna esquerda da tela-->
+            <div id="coluna-esquerda" class="col-3">
+                    <!--Linha do avatar-->
+                    <div class="row">
+                        <!--Area do avatar-->
+                        <div id="avatar-area" class="col-12 d-flex justify-content-center pt-4">
+                            <!--link para imagem-->
+                            {% if request.user.avatar%}
+                                <img id="avatar" src="{{ request.user.avatar }} " alt="">
+                            {% else %}
+                                <img id="avatar" src="{%static 'img/user-3-128x128.png' %}" alt="">
+                            {% endif %}
+
+                        </div>
+                    </div>
+
+                    <!--Linhas das informações do avatar
+                    -----------Nome Função CRM------------->
+                    <!--Nome-->
+                    <div class="row">
+                        <div id="area-nome" class="col-12 d-flex justify-content-center info_user">
+                            <h4 id="nome">{{ request.user }}</h4>
+                        </div>
+                    </div>
+                    <!--end nome-->
+
+                    <!--Função-->
+                    <div class="row">
+                        <div id="area-funcao" class="col-12 d-flex justify-content-center info_user">
+                            <h6 id="funcao">Cargo: {{request.user.occupation}}</h6>
+                        </div>
+                    </div>
+                    <!--end função-->
+
+                    <!--CRM-->
+                    <div class="row">
+                        <div id="area-crm" class="col-12 d-flex justify-content-center info_user">
+                            <h6 id="crm">CRM: {{request.user.crm}}</h6>
+                        </div>
+                    </div>
+                    <!--end crm-->
+
+
+                    <!--Linhas do menu de navegação
+                    -------------Paciente Exames Laudos--------------------->
+
+                    <!--Titulo do menu-->
+                    <div class="row mt-5 mb-5">
+                        <div id="area-titulo-menu" class="col-12 d-flex justify-content-center">
+                            <h3>menu</h3>
+                        </div>
+                    </div>
+                    <!--end titulo-->
+
+                    <!--Home-->
+                    <div class="row mb-1">
+                        <a href="{% url 'home' %}" class="col-12 btn btn_col_esq">home</a>
+                    </div>
+                    <!--end home-->
+
+                    <!--Pacientes-->
+                    <div class="row mb-1">
+                        <a href="{% url 'listPatients' %}" class="col-12 btn btn_col_esq">pacientes</a>
+                    </div>
+                    <!--end pacientes-->
+
+                    <!--Exames-->
+                    <div class="row mb-1">
+                        <a href="{% url 'listExams' %}" class="col-12 btn btn_col_esq">exames</a>
+                    </div>
+                    <!--end exames-->
+
+                    <!--Laudos-->
+                    <div class="row mb-5">
+                        <button type="button" class="col-12 btn btn_col_esq">laudos</button>
+                    </div>
+                    <!--end laudos-->
+
+                    <!--Opções
+                    --------- Minha conta Sair-->
+                    <div id="area-opc" class="row mt-5">
+                        <div class="col-md-6 d-flex justify-content-center mt-1">
+                            <button type="button" class="btn btn-primary text-white text-uppercase">minha conta</button>
+                        </div>
+
+                        <div class="col-md-6 d-flex justify-content-center mt-1">
+                            <a href=" {% url 'exit_user'%}"
+                                class="btn btn-primary pl-4 pr-4 text-white text-uppercase">sair</a>
+                        </div>
+                    </div>
+                    <!--end opções-->
+
+                    <!--Logo-->
+                    <div class="row mt-5 d-flex justify-content-center text-white text-uppercase">
+                        <h1 class="">lab eng</h1>
+                    </div>
+
+                    <div class="row d-flex justify-content-center mb-5 text-white text-uppercase">
+                        <h6>sistema hospitalar</h6>
+                    </div>
+                    <div id="footer-style-space"></div>
+                </div>
+            <!--end coluna esquerda-->
+
+            <!--Coluna direita-->
+            <div id="coluna-direita" class="col-9">
+                {% block main%}
+                {% endblock %}
+            </div>
+        </div>
+    </div>
+
+
+     <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+</body>
+</html>
