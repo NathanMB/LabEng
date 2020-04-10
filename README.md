@@ -9,7 +9,7 @@ Nosso cenário é desenvolver um sistema para um Hospital Universitário, com o 
 - Cadastro de médicos.
 
 # Avaliador
-Fábio Gomes Rocha
+Fabio Gomes Rocha
 
 # Equipe
 - Victor Matheus Lima de Oliveira -- https://github.com/Vonttech
