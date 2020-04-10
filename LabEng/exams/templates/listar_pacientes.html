@@ -120,9 +120,15 @@
             <div id="coluna-direita" class="col-9">
                 <div class="container">
                     <div class="row">
-                        <div class="col-12 d-flex justify-content-center p-5">
+                        <div class="col-12 d-flex justify-content-center p-3">
                             <h1>Lista de Pacientes</h1>
+                        </div>
+                    </div>
 
+                    <div class="row mb-3">
+                        <div class="col d-flex justify-content-center ">
+                            <a href="{%url 'registerPatient'%}"><button type="button"
+                                    class="btn ">Cadastrar</button></a>
                         </div>
                     </div>
 
@@ -133,7 +139,7 @@
                             <div class="table-responsive ">
                                 <table class="table">
                                     <!--Atributos-->
-                                    <thead >
+                                    <thead>
                                         <tr>
                                             <th scope="col">#</th>
                                             <th scope="col">CPF</th>
@@ -164,7 +170,7 @@
                                                     <div class="col-lg-6 d-flex justify-content-center mt-1 p-0">
                                                         <button type="button" class="btn btn-sm">Deletar</button>
                                                     </div>
-                                                    
+
                                                 </div>
                                             </td>
                                         </tr>
@@ -178,12 +184,7 @@
 
                     <!--Area de botoes-->
                     <div class="row">
-                        <div class="col-6">
-                            <a href="{%url 'registerPatient'%}"><button type="button"
-                                    class="btn ">Cadastrar</button></a>
-                        </div>
-
-                        <div class="col-6 d-flex justify-content-end">
+                        <div class="col d-flex justify-content-end">
                             <button type="button" class="btn  m-1">Anterior</button>
                             <button type="button" class="btn btn-sm mt-1 mb-1">1</button>
                             <button type="button" class="btn btn-sm m-1">2</button>
