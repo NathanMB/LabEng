@@ -1,7 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import AbstractBaseUser,BaseUserManager, PermissionsMixin
 from django.utils import timezone
-
+import os
 # Create your models here.
 class MedicoManager(BaseUserManager):
     def _create_user(self, email, password, is_staff, is_superuser, **extra_fields):
@@ -25,6 +25,7 @@ class MedicoManager(BaseUserManager):
 
 class Medico(AbstractBaseUser, PermissionsMixin):
     OCCUPATION_CHOICES = [
+        ('Doctor', 'Doctor'),
         ('Resident', 'Resident'),
         ('Teacher', 'Teacher')
     ]
@@ -46,8 +47,11 @@ class Medico(AbstractBaseUser, PermissionsMixin):
 
     objects = MedicoManager()
 
-    class Meta:
-        ''
+    def get_upload_handler(instance, filename):
+        email = instance.email
+        return os.path.join('static', 'medicos', email, filename)
+
+    avatar = models.ImageField(upload_to=get_upload_handler, null=True)
 
 
     def __str__(self):
