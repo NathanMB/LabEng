@@ -119,7 +119,7 @@ footer {
     background: rgb(255, 255, 255);
 }
 
-#area-nome input, #area-sobrenome input {
+#area-nome input, #area-sobrenome input, #area-cpf input {
     width: 70%;
-    margin-left: 40px;
+    margin-left: 60px;
 }
