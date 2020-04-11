@@ -124,7 +124,7 @@ footer {
     margin-left: 60px;
 }
 
-#form-pacientes{
+#form-pacientes, #form-exame{
     background: #2266b5;
 }
 #area-nome, #area-sobrenome, #area-cpf,#area-nascimento{
