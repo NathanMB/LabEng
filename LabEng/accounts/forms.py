@@ -10,10 +10,13 @@ class MedicoCreationForm(UserCreationForm):
     last_name = forms.CharField(min_length=3)
     password1 = forms.CharField()
     password2 = forms.CharField()
+    avatar = forms.ImageField(
+        widget=forms.FileInput()
+    )
 
     class Meta:
         model = Medico
-        fields = ('email', 'first_name', 'last_name', 'password1', 'password2')
+        fields = ('email', 'first_name', 'last_name', 'password1', 'password2', 'avatar')
 
 
     def clean_email(self):
@@ -30,10 +33,13 @@ class MedicoChangeForm(UserChangeForm):
     first_name = forms.CharField(min_length=6)
     last_name = forms.CharField(min_length=6)
     password = forms.CharField()
+    avatar = forms.ImageField(
+        widget=forms.FileInput()
+    )
 
     class Meta:
         model = Medico
-        fields = ['first_name', 'last_name', 'email', 'crm']
+        fields = ['first_name', 'last_name', 'email', 'crm', 'avatar']
 
 class MedicoAuthenticationForm(AuthenticationForm):
     email = forms.EmailField(

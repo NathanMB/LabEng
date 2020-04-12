@@ -104,20 +104,29 @@ footer {
     background: white;
     color: #195190;
     font-weight: bold;
-    text-transform: uppercase;
+    font-size: small;
+    /*text-transform: uppercase;*/
 }
 
 /*cadastro*/
 
-#area-nome, #area-cpf, #area-nascimento, #area-data, #area-crm, #area-recomendacao {
+#area-nome, #area-sobrenome, #area-cpf, #area-nascimento, #area-data, #area-crm, #area-recomendacao {
     font-weight: bold;
 }
 
-#area-nome input, #area-cpf input, #area-nascimento input, #area-data input, #area-recomendacao input, #area-crm input {
-    border: 2px solid rgb(237, 242, 247);
+#area-nome input, #area-sobrenome input, #area-cpf input, #area-nascimento input, #area-data input, #area-recomendacao input, #area-crm input {
+    border: 2px solid rgb(214, 214, 214);
     background: rgb(255, 255, 255);
 }
 
-#area-nome input {
-    width: 50%;
+#area-nome input, #area-sobrenome input, #area-cpf input,#area-nascimento input {
+    width: 70%;
+    margin-left: 60px;
+}
+
+#form-pacientes, #form-exame{
+    background: #2266b5;
+}
+#area-nome, #area-sobrenome, #area-cpf,#area-nascimento{
+    color: white;
 }
