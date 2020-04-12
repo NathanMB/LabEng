@@ -30,7 +30,7 @@
                     <div id="avatar-area" class="col-12 d-flex justify-content-center pt-4">
                         <!--link para imagem-->
                         {% if request.user.avatar%}
-                        <img id="avatar" src="{{ request.user.avatar }} " alt="">
+                        <img id="avatar" src="/{{ request.user.avatar }} " alt="">
                         {% else %}
                         <img id="avatar" src="{%static 'img/user-3-128x128.png' %}" alt="">
                         {% endif %}
