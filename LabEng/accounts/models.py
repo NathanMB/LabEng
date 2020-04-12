@@ -30,12 +30,12 @@ class Medico(AbstractBaseUser, PermissionsMixin):
         ('Teacher', 'Teacher')
     ]
 
-    crm = models.CharField(unique=True, max_length=15, null=True)
-    email = models.EmailField(unique=True, max_length=60)
-    first_name = models.CharField(max_length=100)
-    last_name = models.CharField(max_length=100)
+    crm = models.CharField(unique=True, max_length=15, blank=False, null=False)
+    email = models.EmailField(unique=True, max_length=60, blank=False, null=False)
+    first_name = models.CharField(max_length=100, blank=False, null=False)
+    last_name = models.CharField(max_length=100, blank=False, null=False)
     date_joined = models.DateTimeField('date joined', default=timezone.now)
-    occupation = models.CharField(max_length=10, choices=OCCUPATION_CHOICES, blank=False, null=True)
+    occupation = models.CharField(max_length=10, choices=OCCUPATION_CHOICES, blank=False, null=False)
 
     is_staff = models.BooleanField('staff_status', default=False)#Pode se logar como admin
     is_active = models.BooleanField('user_active', default=True)

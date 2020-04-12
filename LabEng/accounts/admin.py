@@ -10,7 +10,7 @@ class MedicoAdmin(UserAdmin):
     form = MedicoChangeForm
     model = Medico
 
-    list_display = ['email', 'first_name', 'last_name', 'password', 'is_active', 'occupation']
+    list_display = ['email', 'first_name', 'last_name', 'password', 'is_active', 'occupation', 'is_active']
     list_filter = ['email', 'first_name', 'last_name', 'is_staff', 'is_active', 'date_joined']
 
     fieldsets = (
@@ -25,7 +25,7 @@ class MedicoAdmin(UserAdmin):
     add_fieldsets = (
         ('Campos do Modelo', {
             'classes': ('wide', ),
-            'fields': ('email', 'first_name', 'last_name', 'date_joined', 'password1', 'password2', 'is_staff', 'is_active', 'occupation', 'avatar')
+            'fields': ('email', 'first_name', 'last_name', 'date_joined', 'password1', 'password2', 'occupation', 'avatar')
         }),
     )
 

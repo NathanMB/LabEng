@@ -9,13 +9,13 @@ class Patient(models.Model):
         ('M', 'Masculino')
     ]
     ETHINICITY_CHOICES = [
-        ('Preto', 'Preto'),
+        ('Negro', 'Negro'),
         ('Branco', 'Branco'),
         ('Pardo', 'Pardo'),
         ('Indio', 'Indio'),
         ('Amarelo', 'Amarelo')
     ]
-    cpf = models.CharField(max_length=14, null=True)
+    cpf = models.CharField(max_length=14, blank=False, null=False)
     first_name = models.CharField(max_length=30, blank=False, null=False)
     last_name = models.CharField(max_length=30, blank=False, null=False)
     sex = models.CharField(max_length=1, choices=SEX_CHOICES, blank=False, null=False)
@@ -36,8 +36,8 @@ class Exam(models.Model):
     ]
     doctor = models.ForeignKey(get_user_model(), blank=False, null=False, on_delete=models.CASCADE)
     patient = models.ForeignKey('Patient', blank=False, null=False,on_delete=models.CASCADE)
-    appointment_date = models.DateField(null=False)
-    recommendations = models.CharField(max_length=300)
+    appointment_date = models.DateField(blank=False, null=False)
+    recommendations = models.CharField(blank=False, null=False, max_length=300)
     exam_type = models.CharField(max_length=20, choices=EXAM_TYPE_CHOICES, blank=False, null=False)
 
 
