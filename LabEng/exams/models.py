@@ -1,20 +1,10 @@
 from django.db import models
 from django.contrib.auth import get_user_model
+from exams.choices import SEX_CHOICES, ETHINICITY_CHOICES, EXAM_TYPE_CHOICES
 import os
 
 
 class Patient(models.Model):
-    SEX_CHOICES = [
-        ('F', 'Feminino'),
-        ('M', 'Masculino')
-    ]
-    ETHINICITY_CHOICES = [
-        ('Negro', 'Negro'),
-        ('Branco', 'Branco'),
-        ('Pardo', 'Pardo'),
-        ('Indio', 'Indio'),
-        ('Amarelo', 'Amarelo')
-    ]
     cpf = models.CharField(max_length=14, blank=False, null=False)
     first_name = models.CharField(max_length=30, blank=False, null=False)
     last_name = models.CharField(max_length=30, blank=False, null=False)
@@ -28,12 +18,6 @@ class Patient(models.Model):
         return self.first_name + " " + self.last_name
 
 class Exam(models.Model):
-    EXAM_TYPE_CHOICES = [
-        ('Ecocardiograma', 'Ecorcardiograma'),
-        ('Electrocardiograma', 'Electrocardiograma'),
-        ('Mapa', 'Mapa'),
-        ('Holter', 'Holter')
-    ]
     doctor = models.ForeignKey(get_user_model(), blank=False, null=False, on_delete=models.CASCADE)
     patient = models.ForeignKey('Patient', blank=False, null=False,on_delete=models.CASCADE)
     appointment_date = models.DateField(blank=False, null=False)
