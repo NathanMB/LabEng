@@ -3,37 +3,40 @@ Laboratório de engenharia de software é uma disciplina do curso de Ciência da
 
 # Cenário
 Nosso cenário é desenvolver um sistema para um Hospital Universitário, com o objetivo de informatizar todo o processo de um exames, tendo como exemplo as seguintes características:
-- Solicitação de exames.
-- Emissão de Laudos.
-- Cadastro de pacientes.
-- Cadastro de médicos.
+
+- Solicitação de exames
+- Emissão de Laudos
+- Cadastro de pacientes
+- Cadastro de médicos
 
 # Avaliador
 Fabio Gomes Rocha
 
 # Equipe
-- Victor Matheus Lima de Oliveira -- https://github.com/Vonttech
+- Victor Oliveira -- https://github.com/Vonttech
 - Harrison dos Santos -- https://github.com/harrison-santos
 - Lucas Silva
-- Gabriel dos Santos
-- Eli Emanuel Ferreira Andrade -- https://github.com/EliAndrade
-- Lucas Silva Rocha Santos
-- Nathan Matos Batista
+- Gabriel dos Santos -- https://github.com/gabrieldsantos
+- Eli Andrade -- https://github.com/EliAndrade
+- Lucas Rocha
+- Nathan Batista
 
 # Metodologia
-Scrum.
+Scrum
 
 # Divisão da equipe
-- Product Owner (PO) -- Gabriel dos Santos.
-- Scrum Mater -- Eli Emanuel Ferreira Andrade.
+- Product Owner (PO) -- Gabriel dos Santos
+- Scrum Mater -- Eli Andrade
 
 - Front-end:
-    - Victor Matheus Lima de Oliveira.
-    - Lucas Silva Rocha Santos.
+    - Gabriel dos Santos
+    - Lucas Rocha
+    - Victor Oliveira
 
 - Back-end:
-    - Harrison dos Santos.
-    - Lucas Silva.
+    - Harrison dos Santos
+    - Lucas Silva
 
 - Testador:
-    - Nathan Matos Batista.
+    - Eli Andrade
+    - Nathan Batista
