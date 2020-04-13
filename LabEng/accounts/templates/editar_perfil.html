@@ -1,0 +1,38 @@
+{% extends 'base.html'%}
+
+{% block main %}
+{% if form.errors %}
+    {% for field in form %}
+        {{ field.name }}
+        {% for error in field.errors %}
+            <div class="alert alert-danger">
+                <strong>{{ error|escape }}</strong>
+            </div>
+        {% endfor %}
+    {% endfor %}
+    {% for error in form.non_field_errors %}
+        <div class="alert alert-danger">
+            <strong>{{ error|escape }}</strong>
+        </div>
+    {% endfor %}
+
+{% else %}
+    SEM ERROS
+{% endif %}
+
+<form method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+     <h1> Editar Perfil </h1>
+    {{ form.crm }}
+    {{ form.email }}
+    {{ form.first_name }}
+    {{ form.last_name }}
+    {{ form.avatar }}
+    {{ form.date_joined }}
+    {{ form.occupation }}
+    <button type="submit" class="btn btn-primary"> Enviar</button>
+
+
+</form>
+
+{% endblock %}
