@@ -34,7 +34,7 @@ class Medico(AbstractBaseUser, PermissionsMixin):
     email = models.EmailField(unique=True, max_length=60, blank=False, null=False)
     first_name = models.CharField(max_length=100, blank=False, null=False)
     last_name = models.CharField(max_length=100, blank=False, null=False)
-    date_joined = models.DateTimeField('date joined', default=timezone.now)
+    date_joined = models.DateTimeField()
     occupation = models.CharField(max_length=10, choices=OCCUPATION_CHOICES, blank=False, null=False)
 
     is_staff = models.BooleanField('staff_status', default=False)#Pode se logar como admin
@@ -51,7 +51,7 @@ class Medico(AbstractBaseUser, PermissionsMixin):
         email = instance.email
         return os.path.join('static', 'medicos', email, filename)
 
-    avatar = models.ImageField(upload_to=get_upload_handler, null=True)
+    avatar = models.ImageField(upload_to=get_upload_handler, blank=True, null=True)
 
 
     def __str__(self):

@@ -1,5 +1,5 @@
 from django import forms
-from django.contrib.auth.forms import AuthenticationForm, UserCreationForm, UserChangeForm
+from django.contrib.auth.forms import AuthenticationForm, UserCreationForm, UserChangeForm, ReadOnlyPasswordHashField
 from .models import Medico
 
 
@@ -28,18 +28,23 @@ class MedicoCreationForm(UserCreationForm):
         raise forms.ValidationError('Esse email já existe')
 
 class MedicoChangeForm(UserChangeForm):
-    crm = forms.CharField(min_length=5)
+    crm = forms.CharField(min_length=5,
+                          widget=forms.TextInput(attrs={'readonly':'readonly'}))
     email = forms.CharField(min_length=6)
     first_name = forms.CharField(min_length=6)
     last_name = forms.CharField(min_length=6)
     password = forms.CharField()
-    avatar = forms.ImageField(
-        widget=forms.FileInput()
-    )
+    date_joined = forms.DateTimeField()
+    #occupation = forms.ChoiceField()
+    avatar = forms.ImageField(required=False,
+                             widget=forms.FileInput()
+                             )
+
+    password = ReadOnlyPasswordHashField()
 
     class Meta:
         model = Medico
-        fields = ['first_name', 'last_name', 'email', 'crm', 'avatar']
+        fields = ['crm', 'email', 'first_name', 'last_name', 'date_joined', 'occupation', 'avatar']
 
 class MedicoAuthenticationForm(AuthenticationForm):
     email = forms.EmailField(
