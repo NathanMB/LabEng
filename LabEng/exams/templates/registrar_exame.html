@@ -1,104 +1,99 @@
 {% extends 'base.html' %}
 
 {% block main %}
-<!--Coluna direita-->
-<div id="coluna-direita" class="col-9">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-12 d-flex justify-content-center p-3">
-                            <h1>Cadastro de Exame</h1>
-                        </div>
+<div class="container">
+    <div class="row">
+        <div class="col-12 d-flex justify-content-center p-3">
+            <h1>Cadastro de Exame</h1>
+        </div>
+    </div>
+    <!--Area formulario-->
+    <div class="row">
+        <div class="col-12 d-flex justify-content-center">
+            <form method="POST" id="form-exame" class="rounded pl-5 pr-5 pt-3 pb-2">
+                <div class="row mb-3">
+                    <div class="col d-flex justify-content-center">
+                        <h4 class="text-white">Preencha o formulário</h4>
                     </div>
-                    <!--Area formulario-->
-                    <div class="row">
-                        <div class="col-12 d-flex justify-content-center">
-                            <form method="POST" id="form-exame" class="rounded pl-5 pr-5 pt-3 pb-2">
-                                <div class="row mb-3">
-                                    <div class="col d-flex justify-content-center">
-                                        <h4 class="text-white">Preencha o formulário</h4>
-                                    </div>
-                                </div>
-
-                                {% csrf_token %}
-                                <div class="row">
-                                    <div class="col d-flex justify-content-center">
-                                        <!--Area Paciente-->
-                                        <div id="area-paciente_nome" class="row">
-                                            <div class="col">
-                                                <label for="fname" class="font-weight-bold text-white">Paciente:</label>
-                                                <span>{{ form.patient }}</span>
-
-                                            </div>
-                                        </div>
-                                        <!--end Paciente-->
-                                    </div>
-                                </div>
-
-                                <div class="row">
-                                    <div class="col d-flex justify-content-center">
-                                        <!--Area Data-->
-                                        <div id="area-data" class="row">
-                                            <div class="row pt-2">
-                                                <div class="col">
-                                                    <label for="fname" class="ml-4 text-white">Data do exame: </label>
-                                                    <span class="">{{ form.appointment_date }}</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <!--End data-->
-                                    </div>
-                                </div>
-
-                                <div class="row">
-                                    <div class="col d-flex justify-content-center">
-                                        <!--Area recomendação-->
-                                        <div id="area-recomendacao" class="row">
-                                            <div class="row pt-2">
-                                                <div class="col">
-                                                    <label for="fname" class="text-white">Tipo de Exame:</label>
-                                                    <span class="mr-3">{{ form.exam_type }}</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <!--end recomendação-->
-                                    </div>
-                                </div>
-
-
-                                <div class="row mt-2">
-                                    <div class="col d-flex justify-content-center">
-                                        <!--Area exame-->
-                                        <div id="area-exame" class="row">
-                                            <div class="col">
-                                                <div class="input-group">
-                                                    <div class="input-group-prepend">
-                                                        <label class="input-group-text" for="inputGroupSelect01">
-                                                            Recomendações
-                                                        </label>
-                                                    </div>
-                                                </div>
-                                                {{ form.recommendations }}
-                                            </div>
-                                        </div>
-                                        <!--end area exame-->
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-6 ">
-                                        <a href="{%url 'listExams'%}"><button type="button"
-                                                class="btn  m-1">Voltar</button></a>
-                                    </div>
-
-                                    <div class="col-6 d-flex justify-content-end">
-                                        <button type="submit" class="btn m-1"> Enviar </button>
-                                    </div>
-
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                    <!--end formulario-->
                 </div>
-            </div>
-<!--Coluna direita-->
+
+                {% csrf_token %}
+                <div class="row">
+                    <div class="col d-flex justify-content-center">
+                        <!--Area Paciente-->
+                        <div id="area-paciente_nome" class="row">
+                            <div class="col">
+                                <label for="fname" class="font-weight-bold text-white">Paciente:</label>
+                                <span>{{ form.patient }}</span>
+
+                            </div>
+                        </div>
+                        <!--end Paciente-->
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col d-flex justify-content-center">
+                        <!--Area Data-->
+                        <div id="area-data" class="row">
+                            <div class="row pt-2">
+                                <div class="col">
+                                    <label for="fname" class="ml-4 text-white">Data do exame: </label>
+                                    <span class="">{{ form.appointment_date }}</span>
+                                </div>
+                            </div>
+                        </div>
+                        <!--End data-->
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col d-flex justify-content-center">
+                        <!--Area recomendação-->
+                        <div id="area-recomendacao" class="row">
+                            <div class="row pt-2">
+                                <div class="col">
+                                    <label for="fname" class="text-white">Tipo de Exame:</label>
+                                    <span class="mr-3">{{ form.exam_type }}</span>
+                                </div>
+                            </div>
+                        </div>
+                        <!--end recomendação-->
+                    </div>
+                </div>
+
+
+                <div class="row mt-2">
+                    <div class="col d-flex justify-content-center">
+                        <!--Area exame-->
+                        <div id="area-exame" class="row">
+                            <div class="col">
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <label class="input-group-text" for="inputGroupSelect01">
+                                            Recomendações
+                                        </label>
+                                    </div>
+                                </div>
+                                {{ form.recommendations }}
+                            </div>
+                        </div>
+                        <!--end area exame-->
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-6 ">
+                        <a href="{%url 'listExams'%}"><button type="button" class="btn  m-1">Voltar</button></a>
+                    </div>
+
+                    <div class="col-6 d-flex justify-content-end">
+                        <button type="submit" class="btn m-1"> Enviar </button>
+                    </div>
+
+                </div>
+            </form>
+        </div>
+    </div>
+    <!--end formulario-->
+</div>
 {% endblock %}
