@@ -2,83 +2,80 @@
 
 {% block main%}
 <!--Coluna direita-->
-<div id="coluna-direita" class="col-9">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-12 d-flex justify-content-center p-3">
-                            <h1>Lista de Exames</h1>
-                        </div>
-                    </div>
+<div class="container">
+    <div class="row">
+        <div class="col-12 d-flex justify-content-center p-3">
+            <h1>Lista de Exames</h1>
+        </div>
+    </div>
 
-                    <div class="row mb-3">
-                        <div class="col d-flex justify-content-center ">
-                            <a href="{%url 'registerExam'%}"><button type="button" class="btn ">Cadastrar</button></a>
-                        </div>
-                    </div>
+    <div class="row mb-3">
+        <div class="col d-flex justify-content-center ">
+            <a href="{%url 'registerExam'%}"><button type="button" class="btn ">Cadastrar</button></a>
+        </div>
+    </div>
 
-                    <div class="row">
-                        <div class="col-12">
-                            <!--Tabela de exames
+    <div class="row">
+        <div class="col-12">
+            <!--Tabela de exames
                     --------------------------->
-                            <div class="table-responsive">
-                                <table class="table">
-                                    <!--Atributos-->
-                                    <thead>
-                                        <tr>
-                                            <th scope="col">#</th>
-                                            <th scope="col">CPF</th>
-                                            <th scope="col">NOME</th>
-                                            <th scope="col">CRM</th>
-                                            <th scope="col">DATA</th>
-                                            <th scope="col">RECOMENDAÇÕES</th>
-                                            <th scope="col">EXAME</th>
-                                            <th scope="col">OPÇÕES</th>
-                                        </tr>
-                                    </thead>
-                                    <!--end-->
+            <div class="table-responsive">
+                <table class="table">
+                    <!--Atributos-->
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">CPF</th>
+                            <th scope="col">NOME</th>
+                            <th scope="col">CRM</th>
+                            <th scope="col">DATA</th>
+                            <th scope="col">RECOMENDAÇÕES</th>
+                            <th scope="col">EXAME</th>
+                            <th scope="col">OPÇÕES</th>
+                        </tr>
+                    </thead>
+                    <!--end-->
 
-                                    <tbody>
-                                        {% for exam in exams %}
-                                        <tr>
-                                            <td>1</td>
-                                            <td>{{ exam.patient.cpf }}</td>
-                                            <td>{{ exam.patient }}</td>
-                                            <td>{{ exam.doctor.crm }}</td>
-                                            <td>{{ exam.appointment_date }}</td>
-                                            <td>{{ exam.recommendations }}</td>
-                                            <td>{{ exam.exam_type }}</td>
-                                            <td>
-                                                <div class="row mr-0">
-                                                    <div class="col-lg-6">
-                                                        <button type="button" class="btn btn-sm mt-1">Editar</button>
-                                                    </div>
+                    <tbody>
+                        {% for exam in exams %}
+                        <tr>
+                            <td>1</td>
+                            <td>{{ exam.patient.cpf }}</td>
+                            <td>{{ exam.patient }}</td>
+                            <td>{{ exam.doctor.crm }}</td>
+                            <td>{{ exam.appointment_date }}</td>
+                            <td>{{ exam.recommendations }}</td>
+                            <td>{{ exam.exam_type }}</td>
+                            <td>
+                                <div class="row mr-0">
+                                    <div class="col-lg-6">
+                                        <button type="button" class="btn btn-sm mt-1">Editar</button>
+                                    </div>
 
-                                                    <div class="col-lg-6">
-                                                        <button type="button" class="btn btn-sm mt-1">Deletar</button>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        {% endfor %}
-                                    </tbody>
-                                </table>
-                                <!--end tabela-->
-                            </div>
-                        </div>
-                    </div>
-
-                    <!--Area de botoes-->
-                    <div class="row">
-                        <div class="col d-flex justify-content-end">
-                            <button type="button" class="btn  m-1">Anterior</button>
-                            <button type="button" class="btn btn-sm mt-1 mb-1">1</button>
-                            <button type="button" class="btn btn-sm m-1">2</button>
-                            <button type="button" class="btn btn-sm mt-1 mb-1">3</button>
-                            <button type="button" class="btn  m-1">Próximo</button>
-                        </div>
-                    </div>
-                    <!--end botoes-->
-                </div>
+                                    <div class="col-lg-6">
+                                        <button type="button" class="btn btn-sm mt-1">Deletar</button>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+                <!--end tabela-->
             </div>
-<!--Coluna direita-->
+        </div>
+    </div>
+
+    <!--Area de botoes-->
+    <div class="row">
+        <div class="col d-flex justify-content-end">
+            <button type="button" class="btn  m-1">Anterior</button>
+            <button type="button" class="btn btn-sm mt-1 mb-1">1</button>
+            <button type="button" class="btn btn-sm m-1">2</button>
+            <button type="button" class="btn btn-sm mt-1 mb-1">3</button>
+            <button type="button" class="btn  m-1">Próximo</button>
+        </div>
+    </div>
+    <!--end botoes-->
+</div>
 {% endblock %}

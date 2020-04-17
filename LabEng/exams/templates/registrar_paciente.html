@@ -1,124 +1,118 @@
 {% extends 'base.html' %}
 
 {% block main %}
-<!--Coluna direita-->
-<div id="coluna-direita" class="col-9">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-12 d-flex justify-content-center p-5">
-                            <h1>Cadastro de paciente</h1>
-                        </div>
-                    </div>
-                    <!--Area formulario-->
-                    <div class="row ">
-                        <div class="col-12 d-flex justify-content-center">
-                            <form method="POST" id="form-pacientes" class="p-5 rounded">
-                                <div class="row mb-3">
-                                    <div class="col d-flex justify-content-center">
-                                        <h4 class="text-white">Preencha o formulário</h4>
-                                    </div>
-                                </div>
-
-                                {% csrf_token %}
-                                <!--Area nome-->
-                                <div id="area-nome" class="row">
-                                    <div class="col-1">
-                                        <label for="fname">Nome:</label>
-                                    </div>
-                                    <div class="col-11">
-                                        {{ form.first_name }}
-                                    </div>
-                                </div>
-
-                                <div id="area-sobrenome" class="row pt-2">
-                                    <div class="col-1">
-                                        <label for="surname">Sobrenome: </label>
-                                    </div>
-                                    <div class="col-11">
-                                        {{ form.last_name }}
-                                    </div>
-                                </div>
-                                <!--end nome-->
-
-                                <!--Area cpf-->
-                                <div id="area-cpf" class="row pt-2 ">
-                                    <div class="col-1">
-                                        <label for="fname">CPF:</label>
-                                    </div>
-                                    <div class="col-11">
-                                        {{ form.cpf }}
-                                    </div>
-                                </div>
-                                <!--end cpf-->
-
-                                <!--Area Data nascimento-->
-                                <div id="area-nascimento" class="row pt-2">
-                                    <div class="col-1">
-                                        <label for="fname">Data de Nascimento</label>
-                                    </div>
-                                    <div class="col-11">
-                                        <span>{{ form.birth_date }}</span>
-                                    </div>
-                                </div>
-                                <!--End data-->
-
-                                <div class="row">
-                                    <div class="col-6">
-                                        <!--Area sexo-->
-                                        <div id="area-sexo" class="row">
-                                            <div class="col">
-                                                <div class="input-group mb-3">
-                                                    <div class="input-group-prepend">
-                                                        <label class="input-group-text font-weight-bold text-dark"
-                                                            for="inputGroupSelect01">
-                                                            Sexo
-                                                        </label>
-                                                        {{ form.sex }}
-                                                    </div>
-
-                                                </div>
-
-                                            </div>
-                                        </div>
-                                        <!--end area sexo-->
-                                    </div>
-
-                                    <div class="col-6">
-                                        <!--Area etnia-->
-                                        <div id="area-etnia" class="row">
-                                            <div class="col">
-                                                <div class="input-group mb-3">
-                                                    <div class="input-group-prepend">
-                                                        <label class="input-group-text font-weight-bold text-dark"
-                                                            for="inputGroupSelect01">
-                                                            Etnia
-                                                        </label>
-                                                        {{ form.ethinicity }}
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <!--end etnia-->
-                                    </div>
-                                </div>
-
-                                <div class="row">
-                                    <div class="col-6 ">
-                                        <a href="{%url 'listPatients'%}"><button type="button"
-                                                class="btn  m-1">Voltar</button></a>
-                                    </div>
-
-                                    <div class="col-6 d-flex justify-content-end">
-                                        <button type="submit" class="btn m-1"> Enviar </button>
-                                    </div>
-
-                                </div>
-                            </form>
-                            <!--end formulario-->
-                        </div>
+<div class="container">
+    <div class="row">
+        <div class="col-12 d-flex justify-content-center p-5">
+            <h1>Cadastro de paciente</h1>
+        </div>
+    </div>
+    <!--Area formulario-->
+    <div class="row ">
+        <div class="col-12 d-flex justify-content-center">
+            <form method="POST" id="form-pacientes" class="p-5 rounded">
+                <div class="row mb-3">
+                    <div class="col d-flex justify-content-center">
+                        <h4 class="text-white">Preencha o formulário</h4>
                     </div>
                 </div>
 
-            </div>
-<!--Coluna direita-->
+                {% csrf_token %}
+                <!--Area nome-->
+                <div id="area-nome" class="row">
+                    <div class="col-1">
+                        <label for="fname">Nome:</label>
+                    </div>
+                    <div class="col-11">
+                        {{ form.first_name }}
+                    </div>
+                </div>
+
+                <div id="area-sobrenome" class="row pt-2">
+                    <div class="col-1">
+                        <label for="surname">Sobrenome: </label>
+                    </div>
+                    <div class="col-11">
+                        {{ form.last_name }}
+                    </div>
+                </div>
+                <!--end nome-->
+
+                <!--Area cpf-->
+                <div id="area-cpf" class="row pt-2 ">
+                    <div class="col-1">
+                        <label for="fname">CPF:</label>
+                    </div>
+                    <div class="col-11">
+                        {{ form.cpf }}
+                    </div>
+                </div>
+                <!--end cpf-->
+
+                <!--Area Data nascimento-->
+                <div id="area-nascimento" class="row pt-2">
+                    <div class="col-1">
+                        <label for="fname">Data de Nascimento</label>
+                    </div>
+                    <div class="col-11">
+                        <span>{{ form.birth_date }}</span>
+                    </div>
+                </div>
+                <!--End data-->
+
+                <div class="row">
+                    <div class="col-6">
+                        <!--Area sexo-->
+                        <div id="area-sexo" class="row">
+                            <div class="col">
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <label class="input-group-text font-weight-bold text-dark"
+                                            for="inputGroupSelect01">
+                                            Sexo
+                                        </label>
+                                        {{ form.sex }}
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </div>
+                        <!--end area sexo-->
+                    </div>
+
+                    <div class="col-6">
+                        <!--Area etnia-->
+                        <div id="area-etnia" class="row">
+                            <div class="col">
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <label class="input-group-text font-weight-bold text-dark"
+                                            for="inputGroupSelect01">
+                                            Etnia
+                                        </label>
+                                        {{ form.ethinicity }}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--end etnia-->
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-6 ">
+                        <a href="{%url 'listPatients'%}"><button type="button" class="btn  m-1">Voltar</button></a>
+                    </div>
+
+                    <div class="col-6 d-flex justify-content-end">
+                        <button type="submit" class="btn m-1"> Enviar </button>
+                    </div>
+
+                </div>
+            </form>
+            <!--end formulario-->
+        </div>
+    </div>
+</div>
 {% endblock %}
