@@ -2,37 +2,164 @@
 
 {% block main %}
 {% if form.errors %}
-    {% for field in form %}
-        {{ field.name }}
-        {% for error in field.errors %}
-            <div class="alert alert-danger">
-                <strong>{{ error|escape }}</strong>
-            </div>
-        {% endfor %}
-    {% endfor %}
-    {% for error in form.non_field_errors %}
-        <div class="alert alert-danger">
-            <strong>{{ error|escape }}</strong>
-        </div>
-    {% endfor %}
+{% for field in form %}
+{{ field.name }}
+{% for error in field.errors %}
+<div class="alert alert-danger">
+    <strong>{{ error|escape }}</strong>
+</div>
+{% endfor %}
+{% endfor %}
+{% for error in form.non_field_errors %}
+<div class="alert alert-danger">
+    <strong>{{ error|escape }}</strong>
+</div>
+{% endfor %}
 
 {% else %}
-    SEM ERROS
+
 {% endif %}
+<div class="container">
+    <div class="row">
+        <div class="col-12 d-flex justify-content-center p-3">
+            <h1> Editar Perfil </h1>
+        </div>
+    </div>
 
-<form method="POST" enctype="multipart/form-data">
-    {% csrf_token %}
-     <h1> Editar Perfil </h1>
-    {{ form.crm }}
-    {{ form.email }}
-    {{ form.first_name }}
-    {{ form.last_name }}
-    {{ form.avatar }}
-    {{ form.date_joined }}
-    {{ form.occupation }}
-    <button type="submit" class="btn btn-primary"> Enviar</button>
+    <!--FORM-->
+    <div class="row">
+        <div class="col-12 d-flex justify-content-center">
+            <form method="POST" id="form-exame" class="rounded pl-5 pr-5 pt-3 pb-2" enctype="multipart/form-data">
+                <div class="row mb-3">
+                    <div class="col d-flex justify-content-center">
+                        <h4 class="text-white">Faça as alterações</h4>
+                    </div>
+                </div>
 
+                <!--
+                    ALTERAÇÕES NECESSÁRIAS:
+                        °Principais:
+                            # Alterar a fonte do texto da tag LABEL para negrito.
+                            # Ajustar os espaçamentos entre as linhas dos formulários.
+                            # Ajustar a largura das tags SPAN.
+                            # Alinhar os campos.
 
-</form>
+                    Se julgar alguma outra alteração necessária, faça.
+                    
+                    Pode fazer por BootStrap aplicando as configurações no atributo class = "" nas tags ou por css mas lembre de 
+                    definir o nome de uma CLASSE se for utilizar mais de uma vez ou um ID se for para um elemento específico e chama-los no css:
+                        Classe -> .nomeDaClasse {}
+                        ID -> #id {}
+                        
+                    Obs: Pode adicionar código no css, mas não exclua nada do que estiver lá, depois vamos enxugar aquele código.
+                    Obs 2: Se fizer alteração no css e a page não mudar, aperte crtl + f5 na page do navegador.
+    
+                    APAGUE O COMENTÁRIO QUANDO TERMINAR
+                -->
 
+                {% csrf_token %}
+
+                <!--CRM-->
+                <div class="row">
+                    <div class="col d-flex justify-content-center">
+                        <label for="fname" class="text-white">CRM:</label>
+                        <span>{{ form.crm }}</span>
+                    </div>
+                </div>
+                <!--END crm-->
+
+                <!--EMAIL-->
+                <div class="row">
+                    <div class="col d-flex justify-content-center">
+                        <label for="fname" class="text-white">
+                            Email:
+                        </label>
+                        <span> {{ form.email }}</span>
+                    </div>
+                </div>
+                <!--END email-->
+
+                <!--NAME-->
+                <div class="row">
+                    <div class="col d-flex justify-content-center">
+                        <label for="fname" class="text-white">
+                            Nome:
+                        </label>
+                        <span class="mr-3">{{ form.first_name }}</span>
+                    </div>
+                </div>
+                <!--END name-->
+
+                <!--LAST NAME-->
+                <div class="row">
+                    <div class="col d-flex justify-content-center">
+                        <label for="fname" class="text-white">
+                            Sobrenome:
+                        </label>
+                        <span>{{ form.last_name }}</span>
+                    </div>
+                </div>
+                <!--END last name-->
+
+                <!--DATE JOINED-->
+                <div class="row">
+                    <div class="col d-flex justify-content-center">
+                        <label for="fname" class="text-white">
+                            Data de entrada:
+                        </label>
+                        <span>{{ form.date_joined }}</span>
+                    </div>
+                </div>
+                <!--END data joined-->
+
+                <!--OCCUPATION-->
+                <div class="row">
+                    <div class="col d-flex justify-content-center">
+                        <label for="fname" class="text-white">
+                            Ocupação:
+                        </label>
+                        <span>{{ form.occupation }}</span>
+                    </div>
+                </div>
+                <!--END occupation-->
+
+                <!--AVATAR-->
+                <div class="row">
+                    <div class="col d-flex justify-content-center">
+                        <label for="fname" class="text-white">
+                            Avatar:
+                        </label>
+                        <span>{{ form.avatar }}</span>
+                    </div>
+                </div>
+                <!--END avatar-->
+
+                <!--
+                #####################################
+                    FIM DAS ALTERAÇÕES
+                #########################################
+                -->
+
+                <!--BUTTONS-->
+                <div class="row">
+                    <div class="col-6 ">
+                        <a href="{%url 'listExams'%}">
+                            <button type="button" class="btn  m-1">
+                                Voltar
+                            </button>
+                        </a>
+                    </div>
+
+                    <div class="col-6 d-flex justify-content-end">
+                        <button type="submit" class="btn m-1">
+                            Enviar
+                        </button>
+                    </div>
+                </div>
+                <!--END Bbuttons-->
+            </form>
+        </div>
+    </div>
+    <!--END form-->
+</div>
 {% endblock %}
