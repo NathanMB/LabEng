@@ -1,17 +1,10 @@
 /*Fake background-image opacity
 --------------------------------*/
-
-* {
-    box-sizing: border-box;
-    padding: 0;
-    margin: 0;
-}
-
 div#body-bg_image {
-    padding: 0;
-    margin: 0;
-    width: 100vw;
-    height: 100vh;
+    width: 100%;
+    height: 100%;
+    display: block;
+    position: relative;
 }
 
 div#body-bg_image::after {
@@ -25,8 +18,7 @@ div#body-bg_image::after {
     right: 0;
     position: absolute;
     z-index: -1;
-    width: 100vw;
-    height: 100vh;
+    width: 100%;
 }
 
 /*General*/
@@ -36,9 +28,6 @@ div#body-bg_image::after {
     height: 100vh;
 }
 
-/* #coluna-direita {
-    height: 100vh;
-} */
 
 #coluna-direita button {
     background: white;
@@ -54,9 +43,6 @@ div#body-bg_image::after {
 
 /*Tela Login*/
 
-footer {
-    margin-top: 260px;
-}
 
 /*avatar*/
 
@@ -95,10 +81,6 @@ footer {
     color: white;
     font-weight: bold;
 }
-
-/* #footer-style-space {
-    height: 10px;
-} */
 
 /*Table*/
 
