@@ -1,5 +1,6 @@
 /*Fake background-image opacity
 --------------------------------*/
+
 div#body-bg_image {
     width: 100%;
     height: 100%;
@@ -28,7 +29,6 @@ div#body-bg_image::after {
     height: 100vh;
 }
 
-
 #coluna-direita button {
     background: white;
     color: #195190;
@@ -42,7 +42,6 @@ div#body-bg_image::after {
 }
 
 /*Tela Login*/
-
 
 /*avatar*/
 
@@ -98,26 +97,24 @@ div#body-bg_image::after {
     /*text-transform: uppercase;*/
 }
 
-/*cadastro*/
-
-#area-nome, #area-sobrenome, #area-cpf, #area-nascimento, #area-data, #area-crm, #area-recomendacao {
-    font-weight: bold;
+/*formulários*/
+.formulario {
+    background: #2266b5;
+    color: white;
 }
 
-#area-nome input, #area-sobrenome input, #area-cpf input, #area-nascimento input, #area-data input, #area-recomendacao input, #area-crm input {
+.formulario input {
     border: 2px solid rgb(214, 214, 214);
     background: rgb(255, 255, 255);
-}
-
-#area-nome input, #area-sobrenome input, #area-cpf input, #area-nascimento input {
     width: 70%;
     margin-left: 60px;
 }
 
-#form-pacientes, #form-exame {
-    background: #2266b5;
+#form-perfil input{
+    margin-left: 10px ;
 }
 
-#area-nome, #area-sobrenome, #area-cpf, #area-nascimento {
-    color: white;
+#form-perfil #arquivo input{
+    width: 49%;
 }
+
