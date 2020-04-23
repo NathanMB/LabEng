@@ -9,17 +9,17 @@
     </div>
     <!--Area formulario-->
     <div class="row ">
-        <div class="col-12 d-flex justify-content-center">
-            <form method="POST" id="form-pacientes" class="p-5 rounded">
+        <div class="col-12">
+            <form method="POST" class="d-flex justify-content-center formulario font-weight-bold p-5 rounded ">
                 <div class="row mb-3">
-                    <div class="col d-flex justify-content-center">
-                        <h4 class="text-white">Preencha o formulário</h4>
+                    <div class="col">
+                        <h4>Preencha o formulário</h4>
                     </div>
                 </div>
 
                 {% csrf_token %}
                 <!--Area nome-->
-                <div id="area-nome" class="row">
+                <div class="row">
                     <div class="col-1">
                         <label for="fname">Nome:</label>
                     </div>
@@ -28,7 +28,7 @@
                     </div>
                 </div>
 
-                <div id="area-sobrenome" class="row pt-2">
+                <div class="row pt-2">
                     <div class="col-1">
                         <label for="surname">Sobrenome: </label>
                     </div>
@@ -39,7 +39,7 @@
                 <!--end nome-->
 
                 <!--Area cpf-->
-                <div id="area-cpf" class="row pt-2 ">
+                <div class="row pt-2 ">
                     <div class="col-1">
                         <label for="fname">CPF:</label>
                     </div>
@@ -50,7 +50,7 @@
                 <!--end cpf-->
 
                 <!--Area Data nascimento-->
-                <div id="area-nascimento" class="row pt-2">
+                <div class="row pt-2">
                     <div class="col-1">
                         <label for="fname">Data de Nascimento</label>
                     </div>
@@ -63,7 +63,7 @@
                 <div class="row">
                     <div class="col-6">
                         <!--Area sexo-->
-                        <div id="area-sexo" class="row">
+                        <div class="row">
                             <div class="col">
                                 <div class="input-group mb-3">
                                     <div class="input-group-prepend">
@@ -83,7 +83,7 @@
 
                     <div class="col-6">
                         <!--Area etnia-->
-                        <div id="area-etnia" class="row">
+                        <div class="row">
                             <div class="col">
                                 <div class="input-group mb-3">
                                     <div class="input-group-prepend">
