@@ -29,121 +29,116 @@
     <!--FORM-->
     <div class="row">
         <div class="col-12 d-flex justify-content-center">
-            <form method="POST" id="form-exame" class="rounded pl-5 pr-5 pt-3 pb-2" enctype="multipart/form-data">
+            <form method="POST" id="form-perfil" class="formulario font-weight-bold rounded p-5"
+                enctype="multipart/form-data">
                 <div class="row mb-3">
                     <div class="col d-flex justify-content-center">
-                        <h4 class="text-white">Faça as alterações</h4>
+                        <h4>Faça as alterações</h4>
                     </div>
                 </div>
-
-                <!--
-                    ALTERAÇÕES NECESSÁRIAS:
-                        °Principais:
-                            # Alterar a fonte do texto da tag LABEL para negrito.
-                            # Ajustar os espaçamentos entre as linhas dos formulários.
-                            # Ajustar a largura das tags SPAN.
-                            # Alinhar os campos.
-
-                    Se julgar alguma outra alteração necessária, faça.
-                    
-                    Pode fazer por BootStrap aplicando as configurações no atributo class = "" nas tags ou por css mas lembre de 
-                    definir o nome de uma CLASSE se for utilizar mais de uma vez ou um ID se for para um elemento específico e chama-los no css:
-                        Classe -> .nomeDaClasse {}
-                        ID -> #id {}
-                        
-                    Obs: Pode adicionar código no css, mas não exclua nada do que estiver lá, depois vamos enxugar aquele código.
-                    Obs 2: Se fizer alteração no css e a page não mudar, aperte crtl + f5 na page do navegador.
-    
-                    APAGUE O COMENTÁRIO QUANDO TERMINAR
-                -->
 
                 {% csrf_token %}
 
                 <!--CRM-->
-                <div class="row">
-                    <div class="col d-flex justify-content-center">
-                        <label for="fname" class="text-white">CRM:</label>
-                        <span>{{ form.crm }}</span>
+                <div class="row mt-2 mb-2">
+                    <div class="col d-flex justify-content-end p-0">
+                        <label for="fname">CRM:</label>
+                    </div>
+
+                    <div class="col-8 d-flex justify-content-start p-0">
+                        {{ form.crm }}
                     </div>
                 </div>
                 <!--END crm-->
 
                 <!--EMAIL-->
-                <div class="row">
-                    <div class="col d-flex justify-content-center">
-                        <label for="fname" class="text-white">
+                <div class="row mt-2 mb-2">
+                    <div class="col d-flex justify-content-end p-0">
+                        <label for="fname">
                             Email:
                         </label>
-                        <span> {{ form.email }}</span>
+                    </div>
+                    <div class="col-8 d-flex justify-content-start p-0">
+                        {{ form.email }}
                     </div>
                 </div>
                 <!--END email-->
 
                 <!--NAME-->
-                <div class="row">
-                    <div class="col d-flex justify-content-center">
-                        <label for="fname" class="text-white">
+                <div class="row mt-2 mb-2">
+                    <div class="col d-flex justify-content-end p-0">
+                        <label for="fname">
                             Nome:
                         </label>
-                        <span class="mr-3">{{ form.first_name }}</span>
                     </div>
+
+                    <div class="col-8 d-flex justify-content-start p-0">
+                        {{ form.first_name }}
+                    </div>
+
                 </div>
                 <!--END name-->
 
                 <!--LAST NAME-->
-                <div class="row">
-                    <div class="col d-flex justify-content-center">
-                        <label for="fname" class="text-white">
+                <div class="row mt-2 mb-2">
+                    <div class="col d-flex justify-content-end p-0">
+                        <label for="fname">
                             Sobrenome:
                         </label>
-                        <span>{{ form.last_name }}</span>
+                    </div>
+
+                    <div class="col-8 d-flex justify-content-start p-0">
+                        {{ form.last_name }}
                     </div>
                 </div>
                 <!--END last name-->
 
                 <!--DATE JOINED-->
-                <div class="row">
-                    <div class="col d-flex justify-content-center">
-                        <label for="fname" class="text-white">
+                <div class="row mt-2 mb-2">
+                    <div class="col d-flex justify-content-end p-0">
+                        <label for="fname">
                             Data de entrada:
                         </label>
-                        <span>{{ form.date_joined }}</span>
+                    </div>
+
+                    <div class="col-8 d-flex justify-content-start p-0">
+                        {{ form.date_joined }}
                     </div>
                 </div>
                 <!--END data joined-->
 
                 <!--OCCUPATION-->
                 <div class="row">
-                    <div class="col d-flex justify-content-center">
-                        <label for="fname" class="text-white">
+                    <div class="col d-flex justify-content-end p-0">
+                        <label for="fname">
                             Ocupação:
                         </label>
-                        <span>{{ form.occupation }}</span>
+                    </div>
+                    
+                    <div class="col-8 d-flex justify-content-start pl-2">
+                        {{ form.occupation }}
                     </div>
                 </div>
                 <!--END occupation-->
 
                 <!--AVATAR-->
-                <div class="row">
-                    <div class="col d-flex justify-content-center">
-                        <label for="fname" class="text-white">
+                <div class="row mt-2 mb-2">
+                    <div class="col d-flex justify-content-end p-0">
+                        <label for="fname">
                             Avatar:
                         </label>
-                        <span>{{ form.avatar }}</span>
+                    </div>
+
+                    <div id="arquivo" class="col-8 d-flex justify-content-start p-0 ml-0">
+                        {{ form.avatar }}
                     </div>
                 </div>
                 <!--END avatar-->
 
-                <!--
-                #####################################
-                    FIM DAS ALTERAÇÕES
-                #########################################
-                -->
-
                 <!--BUTTONS-->
                 <div class="row">
                     <div class="col-6 ">
-                        <a href="{%url 'listExams'%}">
+                        <a href="{%url 'home'%}">
                             <button type="button" class="btn  m-1">
                                 Voltar
                             </button>
