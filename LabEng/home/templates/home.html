@@ -14,7 +14,7 @@ HU | Home
 
     <div class="col">
         <div class="chart-container">
-            <canvas id="myPieChart"></canvas>
+            <canvas id="myPieChart" style="border: 1px solid red;"></canvas>
         </div>
     </div>
 </div>
@@ -45,9 +45,8 @@ HU | Home
     var myChart = new Chart(ctx, {
         type: 'bar',
         data: {
-            labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+            labels: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho'],
             datasets: [{
-                label: '# of Votes',
                 data: [12, 19, 3, 5, 2, 3],
                 backgroundColor: [
                     'rgba(255, 99, 132)',
@@ -69,6 +68,10 @@ HU | Home
             }]
         },
         options: {
+            title: {
+                display: true,
+                text: 'Número de Exames Realizados (2019)',
+            },
             scales: {
                 yAxes: [{
                     ticks: {
@@ -82,41 +85,80 @@ HU | Home
 
 <!--Pie Chart-->
 <script>
+    var pieChartLegendHandler = function(e, LegendItem){
+    }
+
+
     var ctx2 = document.getElementById('myPieChart');
     var myPieChart = new Chart(ctx2, {
         type: 'pie',
         data: {
-            labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+            labels: ['Ecocardiograma', 'Electrocardiograma', 'Mapa', 'Holter'],
             datasets: [{
-                label: '# of Votes',
-                data: [12, 19, 3, 5, 2, 3],
+                data: [12, 19, 3, 5],
                 backgroundColor: [
                     'rgba(255, 99, 132)',
                     'rgba(54, 162, 235)',
                     'rgba(255, 206, 86)',
                     'rgba(75, 192, 192)',
-                    'rgba(153, 102, 255)',
-                    'rgba(255, 159, 64)'
                 ],
                 borderColor: [
                     'rgba(255, 99, 132, 1)',
                     'rgba(54, 162, 235, 1)',
                     'rgba(255, 206, 86, 1)',
                     'rgba(75, 192, 192, 1)',
-                    'rgba(153, 102, 255, 1)',
-                    'rgba(255, 159, 64, 1)'
                 ],
                 borderWidth: 1
             }]
         },
         options: {
+
+            animation: {
+                animateRotate: true,
+            },
+
+            title: {
+                display: true,
+                text: 'Tipos de Exames Realizados (2019)',
+            },
+            legend: {
+                align: 'start',
+                onClick: pieChartLegendHandler,
+                onHover: function(){},
+                onLeave: function(){},
+                labels: {
+                  fontSize: 12,
+                  fontColor: 'rgb(255, 99, 132)'
+                },
+
+            },
+
+            layout: {
+                padding:{
+                    left: 0,
+                    right: 0,
+                    top: 0,
+                    bottom: 0
+                }
+            },
+            duration: 3000,
+            easing: 'easeInBack',
+            animation: {
+                OnProgress: function(animation){
+                }
+            },
             scales: {
                 yAxes: [{
                     ticks: {
                         beginAtZero: true
                     }
                 }]
-            }
+            },
+
+            tooltips: {
+            },
+
+
         }
     });
 </script>
