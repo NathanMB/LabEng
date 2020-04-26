@@ -19,13 +19,20 @@ def registerExam(request):
     form = ExamForm(request.POST)
     args = {'form': form}
 
-    if form.is_valid():
+
+    if request.method == 'POST':
         exam = form.save(commit=False)
         exam.doctor = request.user
         form.save()
         return redirect('listExams')
-
-    return render(request, 'registrar_exame.html', args)
+    elif request.method == 'GET':
+        try:
+            buscarPacientes = request.GET["buscarPaciente"]
+            patients_list = Patient.objects.filter(first_name__icontains=buscarPacientes)
+            args['patients_list'] = patients_list
+            return render(request, 'registrar_exame.html', args)
+        except KeyError:
+            return render(request, 'registrar_exame.html', args)
 
 
 def listPatients(request):

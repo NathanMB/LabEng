@@ -2,6 +2,9 @@
 
 {% block main %}
 <div class="container">
+    {% include 'buscar_paciente_modal.html' %}
+
+
     <div class="row">
         <div class="col-12 d-flex justify-content-center p-3">
             <h1>Cadastro de Exame</h1>
@@ -10,72 +13,111 @@
     <!--Area formulario-->
     <div class="row">
         <div class="col-12 d-flex justify-content-center">
-            <form method="POST" class="formulario font-weight-bold rounded pl-5 pr-5 pt-3 pb-2">
+            <div class="formulario">
                 <div class="row mb-3">
                     <div class="col d-flex justify-content-center">
                         <h4>Preencha o formulário</h4>
                     </div>
                 </div>
-
-                {% csrf_token %}
-                <!--Area Paciente-->
-                <div class="row">
-                    <div class="col d-flex justify-content-center">
-                        <label for="fname">Paciente:</label>
-                        <span>{{ form.patient }}</span>
-                    </div>
-                </div>
-                <!--end Paciente-->
-
-                <!--Area Data-->
-                <div class="row">
-                    <div class="col d-flex justify-content-center">
-                        <label for="fname" class="ml-4">Data do exame: </label>
-                        <span>{{ form.appointment_date }}</span>
-                    </div>
-                </div>
-                <!--End data-->
-
-                <!--Area recomendação-->
-                <div class="row">
-                    <div class="col d-flex justify-content-center">
-                        <label for="fname">Tipo de Exame:</label>
-                        <span class="mr-3">{{ form.exam_type }}</span>
-                    </div>
-                </div>
-                <!--end recomendação-->
-
-                <!--Area exame-->
-                <div class="row mt-2">
-                    <div class="col d-flex justify-content-center">
-                        <div class="col">
-                            <div class="input-group">
-                                <div class="input-group-prepend">
-                                    <label class="input-group-text" for="inputGroupSelect01">
-                                        Recomendações
-                                    </label>
-                                </div>
+                <!-- Busca de Paciente -->
+                <form method="GET">
+                    <div class="row">
+                        <div class="col d-flex justify-content-center">
+                            <label>Nome do Paciente:</label>
+                            <span>
+                                <input type="text" id="buscarPaciente" name="buscarPaciente">
+                            </span>
+                            <button type="submit" class="btn btn-primary">
+                                Buscar
+                            </button>
                             </div>
-                            {{ form.recommendations }}
+                    </div>
+                    <button id="btnBuscarPacientesModal" type="button" class="btn btn-primary" data-toggle="modal" data-target="#buscarPacientesModal" style="display: none">
+                        Modal Listagem
+                    </button>
+
+                </form>
+                <!-- Busca de Paciente -->
+
+                <!-- Cadastro de Exame -->
+                <form method="POST" class=" font-weight-bold rounded pl-5 pr-5 pt-3 pb-2">
+                    {% csrf_token %}
+                    <!--Area Paciente-->
+                    <div class="row">
+                        <div class="col d-flex justify-content-center">
+                            <label for="fname">Paciente:</label>
+                            <span>{{ form.patient }}</span>
                         </div>
                     </div>
-                </div>
-                <!--end area exame-->
+                    <!--end Paciente-->
 
-
-                <div class="row">
-                    <div class="col-6 ">
-                        <a href="{%url 'listExams'%}"><button type="button" class="btn  m-1">Voltar</button></a>
+                    <!--Area Data-->
+                    <div class="row">
+                        <div class="col d-flex justify-content-center">
+                            <label for="fname" class="ml-4">Data do exame: </label>
+                            <span>{{ form.appointment_date }}</span>
+                        </div>
                     </div>
+                    <!--End data-->
 
-                    <div class="col-6 d-flex justify-content-end">
-                        <button type="submit" class="btn m-1"> Enviar </button>
+                    <!--Area recomendação-->
+                    <div class="row">
+                        <div class="col d-flex justify-content-center">
+                            <label for="fname">Tipo de Exame:</label>
+                            <span class="mr-3">{{ form.exam_type }}</span>
+                        </div>
                     </div>
+                    <!--end recomendação-->
 
-                </div>
-            </form>
+                    <!--Area exame-->
+                    <div class="row mt-2">
+                        <div class="col d-flex justify-content-center">
+                            <div class="col">
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <label class="input-group-text" for="inputGroupSelect01">
+                                            Recomendações
+                                        </label>
+                                    </div>
+                                </div>
+                                {{ form.recommendations }}
+                            </div>
+                        </div>
+                    </div>
+                    <!--end area exame-->
+
+
+                    <div class="row">
+                        <div class="col-6 ">
+                            <a href="{%url 'listExams'%}"><button type="button" class="btn  m-1">Voltar</button></a>
+                        </div>
+
+                        <div class="col-6 d-flex justify-content-end">
+                            <button type="submit" class="btn m-1"> Enviar </button>
+                        </div>
+
+                    </div>
+                </form>
+                <!-- Cadastro de Exame -->
+            </div>
         </div>
     </div>
     <!--end formulario-->
 </div>
+
+
+{% if patients_list %}
+    Tem Paciente sendo buscado
+    <script>
+        document.body.onload = function(){exibirPacientesModal()};
+    </script>
+    <script>
+        function exibirPacientesModal(){
+            document.getElementById("btnBuscarPacientesModal").click();
+        }
+    </script>
+{% else %}
+    Não tem paciente sendo buscado
+{% endif %}
+
 {% endblock %}
