@@ -44,22 +44,21 @@ class PatientForm(ModelForm):
 
 
 class ExamForm(ModelForm):
-
-    patient = forms.ModelChoiceField(
-        initial=0,
-        queryset=Patient.objects.all(),
-        widget=forms.Select(attrs={})
-    )
+    """patient = forms.ModelChoiceField(
+        queryset=Patient.objects.all().filter(cpf='0'),
+        widget=forms.Select(attrs={'max-width': '100', 'required': 'false'}),
+        empty_label='---------'
+    )"""
     """patient = forms.CharField(
         widget=forms.TextInput(attrs={'size': '40', 'required:': 'false'})
     )"""
 
     appointment_date = forms.DateField(
-        widget=forms.SelectDateWidget()
+        widget=forms.SelectDateWidget(attrs={})
     )
     recommendations = forms.CharField(
         max_length=300,
-        widget=forms.Textarea()
+        widget=forms.Textarea(attrs={'cols': '50%'})
     )
     exam_type = forms.ChoiceField(
         choices=EXAM_TYPE_CHOICES,
@@ -69,4 +68,4 @@ class ExamForm(ModelForm):
 
     class Meta:
         model = Exam
-        fields = ['patient', 'appointment_date', 'recommendations', 'exam_type']
+        fields = ['patient','appointment_date', 'recommendations', 'exam_type']

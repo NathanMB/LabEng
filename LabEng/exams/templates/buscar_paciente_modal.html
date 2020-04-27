@@ -46,7 +46,7 @@
                                 {{ patient.ethinicity }}
                         </div>
                         <div class="col-md-2" >
-                                <a href="{% url 'registerExam' %}?cpfPaciente={{ patient.cpf }}" class="btn">Selecionar</a>
+                                <button onclick="selecionarPacienteModal('{{ patient.cpf }}')" class="btn">Selecionar</button>
                         </div>
                     </div>
                     {% endfor %}

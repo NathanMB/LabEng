@@ -19,7 +19,7 @@ class Patient(models.Model):
 
 class Exam(models.Model):
     doctor = models.ForeignKey(get_user_model(), blank=False, null=False, on_delete=models.CASCADE)
-    patient = models.ForeignKey('Patient', blank=False, null=False, on_delete=models.CASCADE)
+    patient = models.ForeignKey('Patient', blank=True, null=True,  on_delete=models.CASCADE)
     appointment_date = models.DateField(blank=False, null=False)
     recommendations = models.CharField(blank=False, null=False, max_length=300)
     exam_type = models.CharField(max_length=20, choices=EXAM_TYPE_CHOICES, blank=False, null=False)
