@@ -46,9 +46,14 @@ class PatientForm(ModelForm):
 class ExamForm(ModelForm):
 
     patient = forms.ModelChoiceField(
+        initial=0,
         queryset=Patient.objects.all(),
-        widget=forms.Select()
+        widget=forms.Select(attrs={})
     )
+    """patient = forms.CharField(
+        widget=forms.TextInput(attrs={'size': '40', 'required:': 'false'})
+    )"""
+
     appointment_date = forms.DateField(
         widget=forms.SelectDateWidget()
     )
