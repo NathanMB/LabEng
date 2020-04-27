@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from .forms import PatientForm, ExamForm
 from .models import Patient, Exam
 from datetime import datetime, date
+from django.core.exceptions import ObjectDoesNotExist
 
 # Create your views here.
 
@@ -23,16 +24,29 @@ def registerExam(request):
     if request.method == 'POST':
         exam = form.save(commit=False)
         exam.doctor = request.user
-        form.save()
-        return redirect('listExams')
+
+        if form.is_valid():
+            form.save()
+            return redirect('listExams')
+        else:
+            return redirect('home')
+        #except ObjectDoesNotExist:
+            #return render(request, 'registrar_exame.html', args)
+
     elif request.method == 'GET':
-        try:
+        #try:
+        if "buscarPaciente" in request.GET:
             buscarPacientes = request.GET["buscarPaciente"]
             patients_list = Patient.objects.filter(first_name__icontains=buscarPacientes)
             args['patients_list'] = patients_list
             return render(request, 'registrar_exame.html', args)
-        except KeyError:
+        elif "cpfPaciente" in request.GET:
+            cpf = request.GET["cpfPaciente"]
+            form.fields["patient"].queryset = Patient.objects.filter(cpf=cpf)
             return render(request, 'registrar_exame.html', args)
+
+        return render(request, 'registrar_exame.html', args)
+        #except KeyError:
 
 
 def listPatients(request):

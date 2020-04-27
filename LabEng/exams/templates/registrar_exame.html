@@ -19,34 +19,18 @@
                         <h4>Preencha o formulário</h4>
                     </div>
                 </div>
-                <!-- Busca de Paciente -->
-                <form method="GET">
-                    <div class="row">
-                        <div class="col d-flex justify-content-center">
-                            <label>Nome do Paciente:</label>
-                            <span>
-                                <input type="text" id="buscarPaciente" name="buscarPaciente">
-                            </span>
-                            <button type="submit" class="btn btn-primary">
-                                Buscar
-                            </button>
-                            </div>
-                    </div>
-                    <button id="btnBuscarPacientesModal" type="button" class="btn btn-primary" data-toggle="modal" data-target="#buscarPacientesModal" style="display: none">
-                        Modal Listagem
-                    </button>
-
-                </form>
-                <!-- Busca de Paciente -->
 
                 <!-- Cadastro de Exame -->
                 <form method="POST" class=" font-weight-bold rounded pl-5 pr-5 pt-3 pb-2">
                     {% csrf_token %}
                     <!--Area Paciente-->
-                    <div class="row">
-                        <div class="col d-flex justify-content-center">
+                    <div class="form-group row">
+                        <div class="col-md-12">
                             <label for="fname">Paciente:</label>
-                            <span>{{ form.patient }}</span>
+                            {{ form.patient }}
+                            <button id="btnBuscarPacientesModal" type="button" class="btn btn-primary" data-toggle="modal" data-target="#buscarPacientesModal">
+                                Selecionar
+                            </button>
                         </div>
                     </div>
                     <!--end Paciente-->
@@ -115,7 +99,13 @@
         function exibirPacientesModal(){
             document.getElementById("btnBuscarPacientesModal").click();
         }
+
+        function selecionarPacienteModal(cpf){
+            document.getElementById("id_patient").value = cpf;
+            document.getElementById("close_modal").click();
+        }
     </script>
+
 {% else %}
     Não tem paciente sendo buscado
 {% endif %}
