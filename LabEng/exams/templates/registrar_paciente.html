@@ -8,111 +8,117 @@
         </div>
     </div>
     <!--Area formulario-->
+
     <div class="row ">
-        <div class="col-12">
-            <form method="POST" class="d-flex justify-content-center formulario font-weight-bold p-5 rounded ">
-                <div class="row mb-3">
-                    <div class="col">
+
+        <div class="col d-flex justify-content-center">
+            <div class="formulario rounded">
+                <div class="row mt-3">
+                    <div class="col d-flex justify-content-center">
                         <h4>Preencha o formulário</h4>
                     </div>
                 </div>
 
-                {% csrf_token %}
-                <!--Area nome-->
-                <div class="row">
-                    <div class="col-1">
-                        <label for="fname">Nome:</label>
+                <form method="POST" class="font-weight-bold rounded pl-5 pr-5 pt-3 pb-2 ">
+                    {% csrf_token %}
+                    <!--Area nome-->
+                    <div class="row">
+                        <div class="col-3 p-0 d-flex justify-content-end">
+                            <label for="fname">Nome:</label>
+                        </div>
+                        <div class="col">
+                            {{ form.first_name }}
+                        </div>
                     </div>
-                    <div class="col-11">
-                        {{ form.first_name }}
-                    </div>
-                </div>
 
-                <div class="row pt-2">
-                    <div class="col-1">
-                        <label for="surname">Sobrenome: </label>
+                    <div class="row pt-2">
+                        <div class="col-3 p-0 d-flex justify-content-end">
+                            <label for="surname">Sobrenome: </label>
+                        </div>
+                        <div class="col">
+                            {{ form.last_name }}
+                        </div>
                     </div>
-                    <div class="col-11">
-                        {{ form.last_name }}
-                    </div>
-                </div>
-                <!--end nome-->
+                    <!--end nome-->
 
-                <!--Area cpf-->
-                <div class="row pt-2 ">
-                    <div class="col-1">
-                        <label for="fname">CPF:</label>
+                    <!--Area cpf-->
+                    <div class="row pt-2 ">
+                        <div class="col-3 p-0 d-flex justify-content-end">
+                            <label for="fname">CPF:</label>
+                        </div>
+                        <div class="col">
+                            {{ form.cpf }}
+                        </div>
                     </div>
-                    <div class="col-11">
-                        {{ form.cpf }}
-                    </div>
-                </div>
-                <!--end cpf-->
+                    <!--end cpf-->
 
-                <!--Area Data nascimento-->
-                <div class="row pt-2">
-                    <div class="col-1">
-                        <label for="fname">Data de Nascimento</label>
+                    <!--Area Data nascimento-->
+                    <div class="row pt-2">
+                        <div class="col-3 p-0 d-flex justify-content-end">
+                            <label for="fname" id="data-nasc">Data de Nascimento:</label>
+                        </div>
+                        <div class="col">
+                            <span>{{ form.birth_date }}</span>
+                        </div>
                     </div>
-                    <div class="col-11">
-                        <span>{{ form.birth_date }}</span>
-                    </div>
-                </div>
-                <!--End data-->
+                    <!--End data-->
 
-                <div class="row">
-                    <div class="col-6">
-                        <!--Area sexo-->
-                        <div class="row">
-                            <div class="col">
-                                <div class="input-group mb-3">
-                                    <div class="input-group-prepend">
-                                        <label class="input-group-text font-weight-bold text-dark"
-                                            for="inputGroupSelect01">
-                                            Sexo
-                                        </label>
-                                        {{ form.sex }}
+                    <div class="row">
+                        <div class="col-6">
+                            <!--Area sexo-->
+                            <div class="row">
+                                <div class="col">
+                                    <div class="input-group mb-3">
+                                        <div class="input-group-prepend">
+                                            <label class="input-group-text font-weight-bold text-dark"
+                                                for="inputGroupSelect01">
+                                                Sexo
+                                            </label>
+                                            {{ form.sex }}
+                                        </div>
+
                                     </div>
 
                                 </div>
-
                             </div>
+                            <!--end area sexo-->
                         </div>
-                        <!--end area sexo-->
-                    </div>
 
-                    <div class="col-6">
-                        <!--Area etnia-->
-                        <div class="row">
-                            <div class="col">
-                                <div class="input-group mb-3">
-                                    <div class="input-group-prepend">
-                                        <label class="input-group-text font-weight-bold text-dark"
-                                            for="inputGroupSelect01">
-                                            Etnia
-                                        </label>
-                                        {{ form.ethinicity }}
+                        <div class="col-6">
+                            <!--Area etnia-->
+                            <div class="row">
+                                <div class="col">
+                                    <div class="input-group mb-3">
+                                        <div class="input-group-prepend">
+                                            <label class="input-group-text font-weight-bold text-dark"
+                                                for="inputGroupSelect01">
+                                                Etnia
+                                            </label>
+                                            {{ form.ethinicity }}
+                                        </div>
                                     </div>
                                 </div>
                             </div>
+                            <!--end etnia-->
                         </div>
-                        <!--end etnia-->
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="col-6 ">
-                        <a href="{%url 'listPatients'%}"><button type="button" class="btn  m-1">Voltar</button></a>
                     </div>
 
-                    <div class="col-6 d-flex justify-content-end">
-                        <button type="submit" class="btn m-1"> Enviar </button>
-                    </div>
+                    <div class="row">
+                        <div class="col-6 ">
+                            <a href="{%url 'listPatients'%}"><button type="button" class="btn  m-1">Voltar</button></a>
+                        </div>
 
-                </div>
-            </form>
-            <!--end formulario-->
+                        <div class="col-6 d-flex justify-content-end">
+                            <button type="submit" class="btn m-1"> Enviar </button>
+                        </div>
+
+                    </div>
+                </form>
+                <!--end formulario-->
+            </div>
         </div>
+
     </div>
+
 </div>
 {% endblock %}
