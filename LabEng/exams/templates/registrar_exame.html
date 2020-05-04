@@ -27,7 +27,8 @@
 
                     <div class="form-group mb-2">
                         <label for="fname">Paciente:</label>
-                        <input id="cpf_patient" type="text" name="cpf_patient" readonly="readonly">
+                        <input id="cpf_patient" placeholder="Selecione um Paciente" type="text" name="cpf_patient"
+                            readonly="readonly">
 
                         <div class="text-right">
                             <button id="btnBuscarPacientesModal" type="button" class="btn btn-primary"
@@ -41,37 +42,8 @@
 
                     <!--Area Data-->
                     <div class="form-group">
-
-                        <!-- Button trigger modal -->
-                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#staticBackdrop">
-                            Data do exame
-                        </button>
-
-                        <!-- Modal -->
-                        <div class="modal fade text-dark" id="staticBackdrop" data-backdrop="static" tabindex="-1"
-                            role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                            <div class="modal-dialog" role="document">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <h5 class="modal-title" id="staticBackdropLabel">Data do exame:</h5>
-                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                            <span aria-hidden="true">&times;</span>
-                                        </button>
-                                    </div>
-                                    <div class="modal-body">
-                                        <label for="fname">Data do exame: </label>
-                                        <span id="data">{{ form.appointment_date }}</span>
-                                    </div>
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-secondary"
-                                            data-dismiss="modal">Close</button>
-                                        <button type="button"
-                                            class="btn btn-primary">Understood</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <span id="exibeData"></span>
+                        <label for="fname">Data do exame: </label>
+                        <span>{{ form.appointment_date }}</span>
                     </div>
                     <!--End data-->
 
@@ -93,7 +65,7 @@
                         <div>
                             {{ form.recommendations }}
                         </div>
-
+                        
                     </div>
 
                     <div class="form-group">
@@ -106,7 +78,7 @@
 
                             <div class="col d-flex justify-content-end">
                                 <a href="">
-                                    <button id="btn" type="submit" class="btn btn-info m-1 "> Enviar </button>
+                                    <button type="submit" class="btn btn-info m-1 "> Enviar </button>
                                 </a>
                             </div>
                         </div>
@@ -144,5 +116,4 @@
 {% endblock %}
 
 {%block javascript%}
-<script type="text/javascript" src="{% static 'Js/Js.js' %}"></script>
 {%endblock%}
