@@ -92,10 +92,10 @@
 
 
 {% if patients_list %}
-Tem Paciente sendo buscado
 <script>
     document.body.onload = function () { exibirPacientesModal() };
 </script>
+
 <script>
     function exibirPacientesModal() {
         document.getElementById("btnBuscarPacientesModal").click();
@@ -114,3 +114,6 @@ Tem Paciente sendo buscado
 {{ cpf_patient }}
 
 {% endblock %}
+
+{%block javascript%}
+{%endblock%}
