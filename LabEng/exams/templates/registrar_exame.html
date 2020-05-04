@@ -6,113 +6,106 @@
 
 
     <div class="row">
-        <div class="col d-flex justify-content-center p-1">
+        <div class="col d-flex justify-content-center">
             <h1>Cadastro de Exame</h1>
         </div>
     </div>
     <!--Area formulario-->
     <div class="row">
-        <div class="col-12 d-flex justify-content-center">
+        <div class="col d-flex justify-content-center">
             <div class="formulario rounded">
-                <div class="row mt-2">
-                    <div class="col d-flex justify-content-center">
-                        <h4>Preencha o formulário</h4>
-                    </div>
-                </div>
 
                 <!-- Cadastro de Exame -->
                 <form method="POST" class=" font-weight-bold rounded pl-5 pr-5 pt-0 pb-0">
                     {% csrf_token %}
+                    <div class="form-group mb-2">
+                        <div class="d-flex justify-content-center">
+                            <h4>Preencha o formulário</h4>
+                        </div>
+                    </div>
                     <!--Area Paciente-->
 
-                    <div class="form-group row">
-                        <div class="col-md-12">
-                            <div>
-                                <label for="fname">Paciente:</label>
-                                <input id="cpf_patient" placeholder="Selecione um Paciente" type="text" name="cpf_patient" readonly="readonly">
-                            </div>
-                            <div class="text-right">
-                                <button id="btnBuscarPacientesModal" type="button" class="btn btn-primary" data-toggle="modal" data-target="#buscarPacientesModal">
-                                Selecionar
-                                </button>
-                            </div>
+                    <div class="form-group mb-2">
+                        <label for="fname">Paciente:</label>
+                        <input id="cpf_patient" placeholder="Selecione um Paciente" type="text" name="cpf_patient"
+                            readonly="readonly">
 
+                        <div class="text-right">
+                            <button id="btnBuscarPacientesModal" type="button" class="btn btn-primary"
+                                data-toggle="modal" data-target="#buscarPacientesModal">
+                                Selecionar
+                            </button>
                         </div>
                     </div>
 
                     <!--end Paciente-->
 
                     <!--Area Data-->
-                    <div class="form-group row">
-                        <div class="col-md-12">
-                            <div>
-                                <label for="fname">Data do exame: </label>
-                                <span>{{ form.appointment_date }}</span>
-                            </div>
-                        </div>
+                    <div class="form-group">
+                        <label for="fname">Data do exame: </label>
+                        <span>{{ form.appointment_date }}</span>
                     </div>
                     <!--End data-->
 
                     <!--Area recomendação-->
-                    <div class="form-group row">
-                        <div class="col-md-12">
-                            <label for="fname">Tipo de Exame:</label>
-                            <span class="pl-1">{{ form.exam_type }}</span>
-                        </div>
+                    <div class="form-group">
+                        <label for="fname">Tipo de Exame:</label>
+                        <span class="pl-1">{{ form.exam_type }}</span>
                     </div>
                     <!--end recomendação-->
 
                     <!--Area exame-->
-                    <div class="form-group row mb-0">
-                        <div class="col-md-12">
-                            <div class="bg-info d-flex justify-content-center ">
-                                <label class="pt-2">
-                                    Recomendações
-                                </label>
-                            </div>
-
-                            <div>
-                                {{ form.recommendations }}
-                            </div>
+                    <div class="form-group mb-2">
+                        <div class="bg-info d-flex justify-content-center ">
+                            <label class="pt-2">
+                                Recomendações
+                            </label>
                         </div>
+
+                        <div>
+                            {{ form.recommendations }}
+                        </div>
+                        
                     </div>
-                    <!--end area exame-->
 
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col d-flex justify-content-start">
+                                <a href="{%url 'listExams'%}">
+                                    <button type="button" class="btn  m-1">Voltar</button>
+                                </a>
+                            </div>
 
-                    <div class="row pb-2">
-                        <div class="col-6 ">
-                            <a href="{%url 'listExams'%}"><button type="button" class="btn  m-1">Voltar</button></a>
+                            <div class="col d-flex justify-content-end">
+                                <a href="">
+                                    <button type="submit" class="btn btn-info m-1 "> Enviar </button>
+                                </a>
+                            </div>
                         </div>
-
-                        <div class="col-6 d-flex justify-content-end">
-                            <button type="submit" class="btn btn-info m-1 "> Enviar </button>
-                        </div>
-
                     </div>
                 </form>
-                <!-- Cadastro de Exame -->
             </div>
         </div>
     </div>
-    <!--end formulario-->
 </div>
 
 
-{% if patients_list %}
-    Tem Paciente sendo buscado
-    <script>
-        document.body.onload = function(){exibirPacientesModal()};
-    </script>
-    <script>
-        function exibirPacientesModal(){
-            document.getElementById("btnBuscarPacientesModal").click();
-        }
 
-        function selecionarPacienteModal(cpf){
-            document.getElementById("cpf_patient").value = cpf;
-            document.getElementById("close_modal").click();
-        }
-    </script>
+{% if patients_list %}
+Tem Paciente sendo buscado
+<script>
+    document.body.onload = function () { exibirPacientesModal() };
+</script>
+<script>
+    function exibirPacientesModal() {
+        document.getElementById("btnBuscarPacientesModal").click();
+    }
+
+    function selecionarPacienteModal(cpf) {
+        document.getElementById("cpf_patient").value = cpf;
+        document.getElementById("close_modal").click();
+    }
+</script>
 
 {% else %}
 
