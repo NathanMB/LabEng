@@ -71,3 +71,7 @@ def listExams(request):
     args = {'exams': exams}
 
     return render(request, 'listar_exames.html', args)
+
+def listLaudos(request):
+    args = {}
+    return render(request, 'listar_laudo.html', args)
