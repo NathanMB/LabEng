@@ -1,6 +1,5 @@
 /*Fake background-image opacity
 --------------------------------*/
-
 div.body-bg_image {
     width: 100%;
     height: 100%;
@@ -29,7 +28,7 @@ div.body-bg_image::after {
     min-height: 100vh;
 }
 
-#coluna-direita button {
+#coluna-direita button, #coluna-direita a {
     background: white;
     color: #195190;
     border: 1px solid #195190;
@@ -52,7 +51,6 @@ div.body-bg_image::after {
 
 
 /*avatar*/
-
 #avatar {
     border-radius: 80%;
     width: 54px;
@@ -102,7 +100,6 @@ div.body-bg_image::after {
     color: #195190;
     font-weight: bold;
     font-size: small;
-    /*text-transform: uppercase;*/
 }
 
 /*formulários*/
