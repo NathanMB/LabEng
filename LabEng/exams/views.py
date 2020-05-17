@@ -66,11 +66,22 @@ def listPatients(request):
     args = {'patients': patients}
     return render(request, 'listar_pacientes.html', args)
 
+def listPatientsId(request, id):
+    patient = Patient.objects.get(id=id)
+    args = {"patient": patient}
+    return render(request, "editar_paciente.html", args)
+
 def listExams(request):
     exams = Exam.objects.all().filter(doctor=request.user)
     args = {'exams': exams}
 
     return render(request, 'listar_exames.html', args)
+
+def listExamsId(request, id):
+    exam = Exam.objects.get(id=id)
+    args = {"exam": exam}
+    return render(request, "editar_exame.html", args)
+
 
 def listLaudos(request):
     args = {}
