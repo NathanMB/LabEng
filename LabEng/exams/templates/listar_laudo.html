@@ -1,4 +1,78 @@
 {% extends 'base.html' %}
 
 {% block main %}
+<!--Coluna direita-->
+<div class="container">
+    <div class="row">
+        <div class="col-12 d-flex justify-content-center p-3">
+            <h1>Lista de Laudos</h1>
+        </div>
+    </div>
+
+    <div class="row mb-3">
+        <div class="col d-flex justify-content-center ">
+            <a href="{%url 'registerPatient'%}" type="button" class="btn ">Cadastrar</a>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-12">
+            <!--Tabela de Laudos
+                    --------------------------->
+            <div class="table-responsive ">
+                <table class="table">
+                    <!--Atributos-->
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">PACIENTE</th>
+                            <th scope="col">SOLICITANTE</th>
+                            <th scope="col">RESPONSÁVEL</th>
+                            <th scope="col">DATA EMISSÃO</th>
+                            <th scope="col">ORIGEM</th>
+                            <th scope="col">OPÇÕES</th>
+                        </tr>
+                    </thead>
+                    <!--end-->
+
+                    <tbody>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td>
+                                <div id="td-opc" class="row mr-0">
+                                    <div class="col-lg-6 d-flex justify-content-center mt-1 p-0">
+                                        <a href="" type="button" class="btn btn-sm">Editar</a>
+                                    </div>
+
+                                    <div class="col-lg-6 d-flex justify-content-center mt-1 p-0">
+                                        <button type="button" class="btn btn-sm">Deletar</button>
+                                    </div>
+
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <!--end tabela-->
+            </div>
+        </div>
+    </div>
+
+    <!--Area de botoes-->
+    <div class="row">
+        <div class="col-12 d-flex justify-content-end">
+            <button type="button" class="btn  m-1">Anterior</button>
+            <button type="button" class="btn btn-sm mt-1 mb-1">1</button>
+            <button type="button" class="btn btn-sm m-1">2</button>
+            <button type="button" class="btn btn-sm mt-1 mb-1">3</button>
+            <button type="button" class="btn  m-1">Próximo</button>
+        </div>
+    </div>
+    <!--end botoes-->
+</div>
 {% endblock %}
