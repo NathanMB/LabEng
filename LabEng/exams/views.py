@@ -48,7 +48,9 @@ def registerExam(request):
 
         return render(request, 'registrar_exame.html', args)
 
-
+def registerReport(request):
+    args = {}
+    return render(request, "registrar_laudo.html", args)
 
 def listPatients(request):
     today = str(date.today())
@@ -70,6 +72,10 @@ def listPatientsId(request, id):
     patient = Patient.objects.get(id=id)
     args = {"patient": patient}
     return render(request, "editar_paciente.html", args)
+
+def listReportId(request, id):
+    args = {}
+    return render(request, "editar_laudo.html", args)
 
 def listExams(request):
     exams = Exam.objects.all().filter(doctor=request.user)

@@ -11,7 +11,7 @@
 
     <div class="row mb-3">
         <div class="col d-flex justify-content-center ">
-            <a href="{%url 'registerPatient'%}" type="button" class="btn ">Cadastrar</a>
+            <a href="{%url 'registerReport'%}" type="button" class="btn ">Cadastrar</a>
         </div>
     </div>
 
@@ -46,7 +46,7 @@
                             <td>
                                 <div id="td-opc" class="row mr-0">
                                     <div class="col-lg-6 d-flex justify-content-center mt-1 p-0">
-                                        <a href="" type="button" class="btn btn-sm">Editar</a>
+                                        <a href="{% url 'listReportId' 1 %}" type="button" class="btn btn-sm">Editar</a>
                                     </div>
 
                                     <div class="col-lg-6 d-flex justify-content-center mt-1 p-0">
