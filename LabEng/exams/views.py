@@ -15,6 +15,25 @@ def registerPatient(request):
         return redirect('listPatients')
 
     return render(request, 'registrar_paciente.html', args)
+def listPatients(request):
+    today = str(date.today())
+    today = datetime.strptime(today, "%Y-%m-%d")
+
+    patients = Patient.objects.all()
+
+    for patient in patients:
+        birth_date = str(patient.birth_date)
+        birth_date = datetime.strptime(birth_date, "%Y-%m-%d")
+
+        age = int(((today - birth_date).days)/365)
+        patient.age = age
+
+    args = {'patients': patients}
+    return render(request, 'listar_pacientes.html', args)
+def listPatientsId(request, id):
+    patient = Patient.objects.get(id=id)
+    args = {"patient": patient}
+    return render(request, "editar_paciente.html", args)
 
 def registerExam(request):
     form = ExamForm(request.POST)
@@ -47,48 +66,29 @@ def registerExam(request):
             return render(request, 'registrar_exame.html', args)
 
         return render(request, 'registrar_exame.html', args)
-
-def registerReport(request):
-    args = {}
-    return render(request, "registrar_laudo.html", args)
-
-def listPatients(request):
-    today = str(date.today())
-    today = datetime.strptime(today, "%Y-%m-%d")
-
-    patients = Patient.objects.all()
-
-    for patient in patients:
-        birth_date = str(patient.birth_date)
-        birth_date = datetime.strptime(birth_date, "%Y-%m-%d")
-
-        age = int(((today - birth_date).days)/365)
-        patient.age = age
-
-    args = {'patients': patients}
-    return render(request, 'listar_pacientes.html', args)
-
-def listPatientsId(request, id):
-    patient = Patient.objects.get(id=id)
-    args = {"patient": patient}
-    return render(request, "editar_paciente.html", args)
-
-def listReportId(request, id):
-    args = {}
-    return render(request, "editar_laudo.html", args)
-
 def listExams(request):
     exams = Exam.objects.all().filter(doctor=request.user)
     args = {'exams': exams}
 
     return render(request, 'listar_exames.html', args)
-
 def listExamsId(request, id):
     exam = Exam.objects.get(id=id)
     args = {"exam": exam}
     return render(request, "editar_exame.html", args)
+def performExam(request, id):
+    exam = Exam.objects.get(id=id)
+    args = {"exam": exam}
+    return render(request, 'realizar_exame.html', args)
 
-
-def listLaudos(request):
+def registerReport(request):
+    args = {}
+    return render(request, "registrar_laudo.html", args)
+def listReport(request):
     args = {}
     return render(request, 'listar_laudo.html', args)
+def listReportId(request, id):
+    args = {}
+    return render(request, "editar_laudo.html", args)
+
+
+

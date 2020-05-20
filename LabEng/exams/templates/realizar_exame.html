@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block main %}
+    {% if exam.exam_type == "Ecocardiograma" %}
+        <div class="container" style="border: 1px solid red;">
+            <div>
+                <img  src="{% static 'img/equipamento-ecocardiograma.jpg' %}">
+            </div>
+            <div>
+                <a href="#" class="btn">Iniciar Exame</a>
+            </div>
+        </div>
+    {% endif %}
+{% endblock %}
