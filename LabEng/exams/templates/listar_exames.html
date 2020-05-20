@@ -31,7 +31,7 @@
                             <th scope="col">DATA</th>
                             <th scope="col">RECOMENDAÇÕES</th>
                             <th scope="col">EXAME</th>
-                            <th scope="col">OPÇÕES</th>
+                            <th scope="col" class="text-center">OPÇÕES</th>
                         </tr>
                     </thead>
                     <!--end-->
@@ -49,11 +49,15 @@
                             <td>
                                 <div class="row mr-0">
                                     <div class="col-lg">
+                                        <a href="{% url 'performExam' exam.id %}" class="btn btn-sm mt-1">Realizar</a>
+                                    </div>
+
+                                    <div class="col-lg">
                                         <a href="{% url 'listExamsId' exam.id %}" type="button" class="btn btn-sm mt-1">Editar</a>
                                     </div>
 
                                     <div class="col-lg">
-                                        <button type="button" class="btn btn-sm mt-1">Deletar</button>
+                                        <button type="button" class="btn btn-sm mt-1">Cancelar</button>
                                     </div>
                                 </div>
                             </td>

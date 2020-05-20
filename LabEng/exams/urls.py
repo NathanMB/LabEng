@@ -1,17 +1,20 @@
 from django.urls import path
-from .views import registerPatient, registerExam, listPatients, listExams, listLaudos, listPatientsId, listExamsId, registerReport, listReportId
+from .views import registerPatient, registerExam, listPatients, listExams, listReport, listPatientsId, listExamsId, registerReport, listReportId, performExam
 
 
 urlpatterns = [
-    path('cadastrar/paciente', registerPatient, name='registerPatient'),
-    path('cadastrar/exame', registerExam, name='registerExam'),
-    path('listar/pacientes', listPatients, name='listPatients'),
-    path('listar/exames', listExams, name='listExams'),
-    path('listar/laudos', listLaudos, name='listLaudos'),
-    path('pacientes/<int:id>/editar', listPatientsId, name="listPatientsId"),
-    path('exames/<int:id>/editar', listExamsId, name='listExamsId'),
-    path('laudo/<int:id>/editar', listReportId, name="listReportId"),
-    path('cadastrar/laudo', registerReport, name="registerReport")
+    path('paciente/cadastrar', registerPatient, name='registerPatient'),
+    path('paciente/listar', listPatients, name='listPatients'),
+    path('paciente/<int:id>/editar', listPatientsId, name="listPatientsId"),
+
+    path('exame/cadastrar', registerExam, name='registerExam'),
+    path('exame/listar', listExams, name='listExams'),
+    path('exame/<int:id>/editar', listExamsId, name='listExamsId'),
+    path('exame/<int:id>/realizar', performExam, name='performExam'),
+
+    path('laudo/cadastrar', registerReport, name='registerReport'),
+    path('laudo/listar', listReport, name='listReport'),
+    path('laudo/<int:id>/editar', listReportId, name='listReportId'),
 
 
 ]
