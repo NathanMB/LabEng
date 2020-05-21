@@ -1,5 +1,93 @@
 {% extends 'base.html' %}
 
 {% block main %}
+<div class="container p-5">
+    <div class="row">
+        <div class="col d-flex justify-content-center">
+            <h1>emissão de laudo</h1>
+        </div>
+    </div>
 
+    <div class="row">
+        <div class="col d-flex justify-content-end">
+            <button type="button" class="btn mb-1">Imprimir</button>
+        </div>
+    </div>
+
+    <div class="row bg-primary">
+        <div class="col d-flex justify-content-center">
+            <h4 class="text-white text-uppercase p-2">informações do exame</h4>
+        </div>
+    </div>
+
+    <div class="row mt-3">
+        <div class="col bg-secondary">
+            <div class="row">
+                <div class="col">
+                    <label for="" class="text-white">Data do exame</label>
+                    <input type="date" name="" id="">
+                </div>
+                <div class="col">
+                    <label for="" class="text-white">Descrição</label>
+                    <input type="text">
+                </div>
+                <div class="col">
+                    <label for="" class="text-white">Médico solicitante</label>
+                    <input type="text">
+                </div>
+                <div class="col">
+                    <label for="" class="text-white">Médico responsável</label>
+                    <input type="text">
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col">
+                    <label for="" class="text-white">Nome do paciente</label>
+                    <input type="text" name="" id="">
+                </div>
+                <div class="col">
+                    <label for="" class="text-white">Id do paciente</label>
+                    <input type="text" name="" id="">
+                </div>
+                <div class="col">
+                    <label for="" class="text-white">Idade do paciente/anos</label>
+                    <input type="number" name="" id="">
+                </div>
+                <div class="col">
+                    <label for="" class="text-white">Sexo</label>
+                    <input type="text" name="" id="">
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col">
+                    <label for="" class="text-white">Origem do laudo</label>
+                    <input type="text">
+                </div>
+                <div class="col">
+                    <label for="" class="text-white"> Data de emissão</label>
+                    <input type="date" name="" id="">
+                </div>
+                <div class="col">
+                    <label for="" class="text-white">Editado por:</label>
+                    <input type="text" name="" id="">
+                </div>
+            </div>
+
+            <div class="row mt-3 mb-3">
+                <div class="col d-flex justify-content-center">
+                    <textarea name="" id="" cols="60" rows="5"></textarea>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row mt-3">
+        <div class="col d-flex justify-content-center">
+            <button type="button" class="btn">Sair</button>
+            <button type="button" class="btn ml-5">Salvar</button>
+        </div>
+    </div>
+
+</div>
 {% endblock %}
