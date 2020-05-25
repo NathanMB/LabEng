@@ -1,5 +1,44 @@
 {% extends 'base.html' %}
 
 {% block main %}
-<h1>{{ patient }}</h1>
+
+<div class="container pt-5">
+    <h1 class="text-center">Edição de Paciente</h1>
+    <h5 class="text-center">ID: {{patient.id }}</h5>
+    <div class="row">
+        <div class="col-12 text-center">
+            {{ patient.cpf }}
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-12 text-center">
+            {{ patient.first_name }}
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-12 text-center">
+            {{ patient.last_name }}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12 text-center">
+            {{ patient.sex }}
+        </div>
+
+    </div>
+    <div class="row">
+        <div class="col-12 text-center">
+            {{ exam.birthday }}
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-12 text-center">
+            {{ exam.ethinicity }}
+        </div>
+    </div>
+</div>
+
 {% endblock %}

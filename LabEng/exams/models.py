@@ -38,4 +38,7 @@ class Report(models.Model):
         #'D:\LabEng\LabEng\static\medicos\zika@gmail.com\reports\relatorio01.pdf'
 
 
-    file = models.FileField(upload_to=get_upload_handler, null=True)
+    file = models.FileField(upload_to=get_upload_handler, null=True, blank=True)
+
+    def __str__(self):
+        return str(self.exam.id)

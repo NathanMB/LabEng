@@ -1,5 +1,38 @@
 {% extends 'base.html' %}
 
 {% block main %}
-<h1>Exame id {{exam.id }}</h1> aeste
+
+<div class="container pt-5">
+    <h1 class="text-center">Edição de Exame</h1>
+    <h5 class="text-center">ID: {{exam.id }}</h5>
+    <div class="row">
+        <div class="col-12 text-center">
+            {{ exam.doctor }}
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-12 text-center">
+            {{ exam.patient }}
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-12 text-center">
+            {{ exam.appointment_date }}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12 text-center">
+            {{ exam.recommendations }}
+        </div>
+
+    </div>
+    <div class="row">
+        <div class="col-12 text-center">
+            {{ exam.exam_type }}
+        </div>
+    </div>
+</div>
+
 {% endblock %}

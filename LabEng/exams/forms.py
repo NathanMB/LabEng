@@ -2,7 +2,7 @@ from django.forms import ModelForm
 from django import forms
 from exams.choices import *
 
-from .models import Patient, Exam
+from .models import Patient, Exam, Report
 
 class PatientForm(ModelForm):
 
@@ -69,3 +69,9 @@ class ExamForm(ModelForm):
     class Meta:
         model = Exam
         fields = ['patient','appointment_date', 'recommendations', 'exam_type']
+
+
+class ReportForm(ModelForm):
+    class Meta:
+        model = Report
+        fields = ['exam', 'medico', 'approved', 'realization_date', 'diagnostic', 'file']

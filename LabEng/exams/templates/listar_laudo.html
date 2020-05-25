@@ -36,17 +36,18 @@
                     <!--end-->
 
                     <tbody>
+                    {% for report in reports %}
                         <tr>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
+
+                            <td>{{ report.exam }}</td>
+                            <td>{{ report.medico }}</td>
+                            <td>{{ report.approved }}</td>
+                            <td>{{ report.realization_date }}</td>
+                            <td>{{ report.diagnostic }}</td>
                             <td>
                                 <div id="td-opc" class="row mr-0">
                                     <div class="col-lg-6 d-flex justify-content-center mt-1 p-0">
-                                        <a href="{% url 'listReportId' 1 %}" type="button" class="btn btn-sm">Editar</a>
+                                        <a href="{% url 'listReportId' report.id %}" type="button" class="btn btn-sm">Editar</a>
                                     </div>
 
                                     <div class="col-lg-6 d-flex justify-content-center mt-1 p-0">
@@ -56,6 +57,7 @@
                                 </div>
                             </td>
                         </tr>
+                    {% endfor %}
                     </tbody>
                 </table>
                 <!--end tabela-->

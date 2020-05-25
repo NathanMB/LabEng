@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
-from .forms import PatientForm, ExamForm
-from .models import Patient, Exam
+from .forms import PatientForm, ExamForm, ReportForm
+from .models import Patient, Exam, Report
 from datetime import datetime, date
 from django.core.exceptions import ObjectDoesNotExist
 
@@ -76,19 +76,35 @@ def listExamsId(request, id):
     args = {"exam": exam}
     return render(request, "editar_exame.html", args)
 def performExam(request, id):
+    today = str(date.today())
+    today = datetime.strptime(today, "%Y-%m-%d")
     exam = Exam.objects.get(id=id)
-    args = {"exam": exam}
-    return render(request, 'realizar_exame.html', args)
+    report = Report(medico=request.user, exam=exam, realization_date=today, file=None)
+    form = ReportForm(request.POST or None, instance=report)
+    args = {"exam": exam, "form": form}
+
+    if request.method == "GET":
+        return render(request, 'realizar_exame.html', args)
+    elif request.method == "POST":
+        if form.is_valid():
+            form.save()
+            return render(request, 'registrar_laudo.html')
+        else:
+            print("Error: "+str(form.errors))
+            return render(request, 'realizar_exame.html', args)
+
 
 def registerReport(request):
     args = {}
     return render(request, "registrar_laudo.html", args)
 def listReport(request):
-    args = {}
+    reports = Report.objects.all()
+    args = {"reports": reports}
     return render(request, 'listar_laudo.html', args)
 def listReportId(request, id):
-    args = {}
-    return render(request, "editar_laudo.html", args)
+    report = Report.objects.get(pk=id)
+    args =  {"report": report}
+    return render(request, "registrar_laudo.html", args)
 
 
 
