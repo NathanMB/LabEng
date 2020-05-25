@@ -103,7 +103,8 @@ def listReport(request):
     return render(request, 'listar_laudo.html', args)
 def listReportId(request, id):
     report = Report.objects.get(pk=id)
-    args =  {"report": report}
+    form = ReportForm(request.GET or None, instance=report)
+    args =  {"report": report, "form":form }
     return render(request, "registrar_laudo.html", args)
 
 

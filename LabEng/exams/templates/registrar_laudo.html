@@ -21,65 +21,46 @@
         </div>
     </div>
 
-    <div class="row mt-3">
+    <form>
         <div class="col bg-secondary">
             <div class="row">
                 <div class="col">
-                    <label for="" class="text-white">Data do exame</label>
-                    <input type="date" name="exame_date" id="">
+                    <label for="" class="text-white">Código do Exame: </label>
+                    {{ form.exam }}
                 </div>
+
                 <div class="col">
-                    <label for="" class="text-white">Descrição</label>
-                    <input type="text">
-                </div>
-                <div class="col">
-                    <label for="" class="text-white">Médico solicitante</label>
-                    <input type="text" value="{{ report.medico}}">
-                </div>
-                <div class="col">
-                    <label for="" class="text-white">Médico responsável</label>
-                    <input type="text" value="{{ report.medico}}">
+                    <label for="" class="text-white">Médico Responsável: </label>
+                    {{ form.medico}}
                 </div>
             </div>
-
             <div class="row">
                 <div class="col">
-                    <label for="" class="text-white">Nome do paciente</label>
-                    <input type="text" name="" value="{{ report.exam.patient }}">
-                </div>
-
-                <div class="col">
-                    <label for="" class="text-white">Idade do paciente/anos</label>
-                    <input type="number" name="" value="{{ report.exam.patient.birth_date }}">
-                </div>
-                <div class="col">
-                    <label for="" class="text-white">Sexo</label>
-                    <input type="text" name="" value="{{ report.exam.patient.sex }}">
+                    <label for="" class="text-white">Realização do Exame: </label>
+                   {{ form.realization_date }}
                 </div>
             </div>
 
-            <div class="row">
-                <div class="col">
-                    <label for="" class="text-white">Origem do laudo</label>
-                    <input type="text">
+            <div class="form-group">
+                <div class="bg-info text-center">
+                        <label class="pt-2 text-white">
+                           Diagnóstico
+                        </label>
                 </div>
-                <div class="col">
-                    <label for="" class="text-white"> Data de emissão</label>
-                    <input type="date" name="deploy_date" value="{{ report.realization_date }}">
-                </div>
-                <div class="col">
-                    <label for="" class="text-white">Editado por:</label>
-                    <input type="text" name="" id="">
-                </div>
+               <div>
+                   {{ form.diagnostic }}
+               </div>
             </div>
 
-            <div class="row mt-3 mb-3">
-                <div class="col d-flex justify-content-center">
-                    <textarea name="" cols="60" rows="5"></textarea>
+            <div class="form-group">
+                <div class="col">
+                    {{ form.file.value }}
                 </div>
             </div>
         </div>
-    </div>
+
+    </form>
+
     <div class="row mt-3">
         <div class="col d-flex justify-content-center">
             <button type="button" class="btn">Sair</button>

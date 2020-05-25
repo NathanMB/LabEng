@@ -72,6 +72,11 @@ class ExamForm(ModelForm):
 
 
 class ReportForm(ModelForm):
+    diagnostic = forms.CharField(
+        max_length=500,
+        widget=forms.Textarea(attrs={'cols': '128'})
+    )
+
     class Meta:
         model = Report
         fields = ['exam', 'medico', 'approved', 'realization_date', 'diagnostic', 'file']
