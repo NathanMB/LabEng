@@ -24,6 +24,9 @@ class Exam(models.Model):
     recommendations = models.CharField(blank=False, null=False, max_length=300)
     exam_type = models.CharField(max_length=20, choices=EXAM_TYPE_CHOICES, blank=False, null=False)
 
+    def __str__(self):
+        return str(self.id)
+
 
 class Report(models.Model):
     exam = models.ForeignKey('Exam', blank=False, null=False, on_delete=models.CASCADE)
