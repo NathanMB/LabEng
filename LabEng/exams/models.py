@@ -1,6 +1,6 @@
 from django.db import models
 from django.contrib.auth import get_user_model
-from exams.choices import SEX_CHOICES, ETHINICITY_CHOICES, EXAM_TYPE_CHOICES
+from exams.choices import SEX_CHOICES, ETHINICITY_CHOICES, EXAM_TYPE_CHOICES, REPORT_STATUS_CHOICES
 import os
 
 
@@ -34,6 +34,7 @@ class Report(models.Model):
     approved = models.BooleanField()
     realization_date = models.DateField(null=False)
     diagnostic = models.CharField(max_length=100)
+    status = models.CharField(max_length=30, choices=REPORT_STATUS_CHOICES, blank=True, null=True, default=REPORT_STATUS_CHOICES[0])
 
     def get_upload_handler(instance, filename):
         email = instance.medico.email

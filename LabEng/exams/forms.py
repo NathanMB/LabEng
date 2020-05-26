@@ -74,7 +74,7 @@ class ExamForm(ModelForm):
 class ReportForm(ModelForm):
     diagnostic = forms.CharField(
         max_length=500,
-        widget=forms.Textarea(attrs={'cols': '128'})
+        widget=forms.Textarea(attrs={'cols': '127'})
     )
 
     class Meta:

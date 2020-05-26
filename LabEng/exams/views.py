@@ -107,5 +107,6 @@ def listReportId(request, id):
     args =  {"report": report, "form":form }
     return render(request, "registrar_laudo.html", args)
 
-
+def emitReport(request, id):
+    return redirect('listReport')
 
