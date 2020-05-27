@@ -88,7 +88,7 @@ def performExam(request, id):
     elif request.method == "POST":
         if form.is_valid():
             form.save()
-            return render(request, 'registrar_laudo.html')
+            return listReportId(request, report.id)
         else:
             print("Error: "+str(form.errors))
             return render(request, 'realizar_exame.html', args)
@@ -101,11 +101,24 @@ def listReport(request):
     reports = Report.objects.all()
     args = {"reports": reports}
     return render(request, 'listar_laudo.html', args)
+
 def listReportId(request, id):
     report = Report.objects.get(pk=id)
-    form = ReportForm(request.GET or None, instance=report)
-    args =  {"report": report, "form":form }
-    return render(request, "registrar_laudo.html", args)
+
+    if request.method == "GET":
+        form = ReportForm(request.GET or None, instance=report)
+        args = {"report": report, "form": form}
+        return render(request, "registrar_laudo.html", args)
+    elif request.method == "POST":
+        form = ReportForm(request.POST or None, instance=report)
+
+        if form.is_valid():
+            form.save()
+            args = {"report": report, "form": form}
+            return render(request, "registrar_laudo.html", args)
+        else:
+            args = {"report": report, "form": form}
+            return redirect("home")
 
 def emitReport(request, id):
     return redirect('listReport')

@@ -33,4 +33,5 @@ class MedicoAdmin(UserAdmin):
     ordering = ('email', )
 
 
+
 admin.site.register(Medico, MedicoAdmin)

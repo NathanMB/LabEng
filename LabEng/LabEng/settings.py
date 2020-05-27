@@ -113,7 +113,7 @@ TIME_ZONE = 'America/Sao_Paulo'
 
 USE_I18N = True
 
-USE_L10N = True
+USE_L10N = False
 
 USE_TZ = True
 
@@ -130,4 +130,6 @@ AUTH_USER_MODEL = 'accounts.Medico'
 
 LOGIN_REDIRECT_URL = 'home'
 LOGOUT_REDIRECT_URL = 'home'
+
+DATE_FORMAT = 'd/m/Y'
 
