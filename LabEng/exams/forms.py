@@ -72,8 +72,13 @@ class ExamForm(ModelForm):
 
 
 class ReportForm(ModelForm):
+    #exam = forms.CharField(
+        #widget=forms.TextInput(attrs={'readonly': 'readonly'})
+    #)
+
     diagnostic = forms.CharField(
-        max_length=500,
+        max_length=1000,
+        required=False,
         widget=forms.Textarea(attrs={'cols': '127'})
     )
 

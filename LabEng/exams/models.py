@@ -5,7 +5,7 @@ import os
 
 
 class Patient(models.Model):
-    cpf = models.CharField(max_length=14, blank=False, null=False)
+    cpf = models.CharField(max_length=14, blank=False, null=False, unique=True)
     first_name = models.CharField(max_length=30, blank=False, null=False)
     last_name = models.CharField(max_length=30, blank=False, null=False)
     sex = models.CharField(max_length=1, choices=SEX_CHOICES, blank=False, null=False)
@@ -33,7 +33,7 @@ class Report(models.Model):
     medico = models.ForeignKey('accounts.Medico', blank=False, null=True, on_delete=models.CASCADE)
     approved = models.BooleanField()
     realization_date = models.DateField(null=False)
-    diagnostic = models.CharField(max_length=100)
+    diagnostic = models.CharField(max_length=100, blank=True, null=True)
     status = models.CharField(max_length=30, choices=REPORT_STATUS_CHOICES, blank=True, null=True, default=REPORT_STATUS_CHOICES[0])
 
     def get_upload_handler(instance, filename):
