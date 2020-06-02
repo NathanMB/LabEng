@@ -32,7 +32,7 @@ class Report(models.Model):
     exam = models.ForeignKey('Exam', blank=False, null=False, on_delete=models.CASCADE)
     medico = models.ForeignKey('accounts.Medico', blank=False, null=True, on_delete=models.CASCADE)
     emmited = models.BooleanField()
-    realization_date = models.DateField(null=False)
+    realization_date = models.DateField(null=True, blank=True)
     diagnostic = models.CharField(max_length=100, blank=True, null=True)
     status = models.CharField(max_length=30, choices=REPORT_STATUS_CHOICES, blank=True, null=True, default=REPORT_STATUS_CHOICES[0][0])
 

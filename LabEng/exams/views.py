@@ -87,7 +87,7 @@ def performExam(request, id):
     elif request.method == "POST":
         if form.is_valid():
             form.save()
-            return performReport(request, report.id)
+            return redirect('listReportId', id=report.id)
         else:
             print("Error: "+str(form.errors))
             return render(request, 'realizar_exame.html', args)
@@ -111,9 +111,13 @@ def performReport(request, id):
     elif request.method == "POST":
         form = ReportForm(request.POST or None, instance=report)
 
+
         if form.is_valid():
+            today = str(date.today())
+            today = datetime.strptime(today, "%Y-%m-%d")
             form = form.save(commit=False)
-            form.realization_date = "02/06/2020"
+            form.emmited = 1
+            form.realization_date = today
             form.save()
 
 
