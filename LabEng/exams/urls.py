@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import registerPatient, registerExam, listPatients, listExams, listReport, listPatientsId, listExamsId, registerReport, listReportId, performExam, emitReport
+from .views import registerPatient, registerExam, listPatients, listExams, listReport, listPatientsId, listExamsId, registerReport, performReport, performExam, emitReport
 
 
 urlpatterns = [
@@ -14,8 +14,7 @@ urlpatterns = [
 
     path('laudo/cadastrar', registerReport, name='registerReport'),
     path('laudo/listar', listReport, name='listReport'),
-    path('laudo/<int:id>/editar', listReportId, name='listReportId'),
-    path('laudo/<int:id>/emitir', emitReport, name='emitReport')
+    path('laudo/<int:id>/emitir', performReport, name='listReportId'),
 
 
 ]

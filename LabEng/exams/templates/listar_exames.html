@@ -1,11 +1,15 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block main%}
 <!--Coluna direita-->
 <div class="container">
     <div class="row">
-        <div class="col-12 d-flex justify-content-center p-3">
+        <div class="offset-md-3 col-md-6 d-flex justify-content-center p-3">
             <h1>Lista de Exames</h1>
+        </div>
+        <div class="col-md-3 text-right pt-2" >
+            <img src="{% static 'icons/exam-icon.png' %}" width=70px">
         </div>
     </div>
 

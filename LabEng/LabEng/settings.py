@@ -132,4 +132,5 @@ LOGIN_REDIRECT_URL = 'home'
 LOGOUT_REDIRECT_URL = 'home'
 
 DATE_FORMAT = 'd/m/Y'
+DATE_INPUT_FORMAT = ('%d/%m/%Y')
 

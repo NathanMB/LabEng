@@ -1,18 +1,18 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block main %}
 <!--Coluna direita-->
 <div class="container">
     <div class="row">
-        <div class="col-12 d-flex justify-content-center p-3">
-            <h1>Lista de Laudos</h1>
+        <div class="offset-md-3 col-md-6 d-flex justify-content-center p-3  mt-5">
+            <h1 class="pl-2">Lista de Laudos</h1>
         </div>
-    </div>
+        <div class="col-md-3 text-right pt-2" >
+            <img src="{% static 'icons/report-icon.png' %}" width=70px">
+        </div>
 
-    <div class="row mb-3">
-        <div class="col d-flex justify-content-center ">
-            <a href="{%url 'registerReport'%}" type="button" class="btn ">Cadastrar</a>
-        </div>
+
     </div>
 
     <div class="row">
@@ -24,13 +24,12 @@
                     <!--Atributos-->
                     <thead>
                         <tr>
-                            <th scope="col">#</th>
-                            <th scope="col">PACIENTE</th>
-                            <th scope="col">SOLICITANTE</th>
-                            <th scope="col">RESPONSÁVEL</th>
-                            <th scope="col">DATA EMISSÃO</th>
-                            <th scope="col">ORIGEM</th>
-                            <th scope="col">OPÇÕES</th>
+                            <th scope="col">Exame ID</th>
+                            <th scope="col">Médico</th>
+                            <th scope="col">Emitido</th>
+                            <th scope="col">Data Realização</th>
+                            <th scope="col">Status</th>
+                            <th scope="col" class="text-center">Opções</th>
                         </tr>
                     </thead>
                     <!--end-->
@@ -41,17 +40,23 @@
 
                             <td>{{ report.exam }}</td>
                             <td>{{ report.medico }}</td>
-                            <td>{{ report.approved }}</td>
-                            <td>{{ report.realization_date }}</td>
-                            <td>{{ report.diagnostic }}</td>
                             <td>
-                                <div id="td-opc" class="row mr-0">
-                                    <div class="col-lg-6 d-flex justify-content-center mt-1 p-0">
-                                        <a href="{% url 'listReportId' report.id %}" type="button" class="btn btn-sm">Editar</a>
+                                {% if report.emmited == 0 %}
+                                    <span>Não</span>
+                                {% else %}
+                                    <span>Sim</span>
+                                {% endif %}
+                            </td>
+                            <td>{{ report.realization_date }}</td>
+                            <td>{{ report.status }}</td>
+                            <td class="text-center">
+                                <div id="td-opc" class="row mr-0" >
+                                    <div class="col-md-6 mt-1 pr-0" >
+                                        <a href="{% url 'listReportId' report.id %}" type="button" class="btn btn-sm">Emitir</a>
                                     </div>
 
-                                    <div class="col-lg-6 d-flex justify-content-center mt-1 p-0">
-                                        <button type="button" class="btn btn-sm">Deletar</button>
+                                    <div class="col-md-6 mt-1 pl-0">
+                                        <a href="#" class="btn btn-sm">Cancelar</a>
                                     </div>
 
                                 </div>
