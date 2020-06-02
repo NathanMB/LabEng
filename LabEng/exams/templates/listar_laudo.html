@@ -50,6 +50,7 @@
                             <td>{{ report.realization_date }}</td>
                             <td>{{ report.status }}</td>
                             <td class="text-center">
+                                {% if report.emmited == 0%}
                                 <div id="td-opc" class="row mr-0" >
                                     <div class="col-md-6 mt-1 pr-0" >
                                         <a href="{% url 'listReportId' report.id %}" type="button" class="btn btn-sm">Emitir</a>
@@ -60,6 +61,13 @@
                                     </div>
 
                                 </div>
+                                {% else %}
+                                    <div class="col-md-6 mt-1 pr-0" >
+                                        <button type="button"  disabled class="btn btn-sm">Emitido</button>
+                                    </div>
+                                {% endif %}
+
+
                             </td>
                         </tr>
                     {% endfor %}

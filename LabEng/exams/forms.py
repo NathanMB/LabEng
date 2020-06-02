@@ -77,7 +77,6 @@ class ReportForm(ModelForm):
         #widget=forms.TextInput(attrs={'readonly': 'readonly'})
     #)
 
-    realization_date =  forms.DateField(input_formats=settings.DATE_INPUT_FORMAT)
 
     diagnostic = forms.CharField(
         max_length=1000,
