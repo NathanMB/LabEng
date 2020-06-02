@@ -16,29 +16,29 @@
         </div>
     </div>
 
-    <div class="bg-info">
+    <div class="bg-primary">
         <div class="col d-flex justify-content-center">
-            <h4 class="text-white text-uppercase p-2">informações do exame</h4>
+            <h4 class="text-white text-uppercase pt-1"></h4>
         </div>
     </div>
 
-    <form method="post">
+    <form method="post" class="text-dark">
         {% csrf_token %}
-        <div class="col bg-secondary pt-2">
+        <div class="col pt-2 bg-light">
             <div class="row">
                 <div class="form-group col-md-4">
-                    <label for="" class="text-white">Código do Exame: {{ form.exam.value }} </label>
+                    <label for="">Código do Exame: {{ form.exam.value }} </label>
                     <input id="exam" name="exam" type="hidden" value="{{ form.exam.value }}">
                 </div>
 
                 <div class="form-group col-md-4">
-                    <label for="" class="text-white">Médico: {{ form.medico.value }}</label>
+                    <label for="">Médico: {{ form.medico.value }}</label>
                     <input id="medico" name="medico" type="hidden" value="{{ form.medico.value }}">
 
                 </div>
 
                 <div class="form-group col-md-4">
-                    <label for="" class="text-white">Data: {{ form.realization_date.value|date:"M d, Y" }}</label>
+                    <label for="">Data: {{ form.realization_date.value|date:"M d, Y" }}</label>
                     <!--
                     <input id="realization_date" name="realization_date" type="hidden" value="{{ form.realization_date.value }}">
                     -->
@@ -54,8 +54,8 @@
             </div>
 
             <div class="form-group">
-                <div class="bg-primary text-center">
-                        <label class="pt-2 text-white">
+                <div class="bg-info text-center">
+                        <label class="pt-2">
                            Diagnóstico
                         </label>
                 </div>

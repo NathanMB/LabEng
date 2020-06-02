@@ -3,7 +3,6 @@ from .forms import PatientForm, ExamForm, ReportForm
 from .models import Patient, Exam, Report
 from datetime import datetime, date
 from django.core.exceptions import ObjectDoesNotExist
-
 # Create your views here.
 
 def registerPatient(request):
@@ -88,7 +87,7 @@ def performExam(request, id):
     elif request.method == "POST":
         if form.is_valid():
             form.save()
-            return listReportId(request, report.id)
+            return performReport(request, report.id)
         else:
             print("Error: "+str(form.errors))
             return render(request, 'realizar_exame.html', args)
@@ -102,7 +101,7 @@ def listReport(request):
     args = {"reports": reports}
     return render(request, 'listar_laudo.html', args)
 
-def listReportId(request, id):
+def performReport(request, id):
     report = Report.objects.get(pk=id)
 
     if request.method == "GET":
@@ -113,10 +112,15 @@ def listReportId(request, id):
         form = ReportForm(request.POST or None, instance=report)
 
         if form.is_valid():
+            form = form.save(commit=False)
+            form.realization_date = "02/06/2020"
             form.save()
+
+
             args = {"report": report, "form": form}
             return render(request, "registrar_laudo.html", args)
         else:
+            print(form.errors)
             args = {"report": report, "form": form}
             return redirect("home")
 

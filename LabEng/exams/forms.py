@@ -1,6 +1,7 @@
 from django.forms import ModelForm
 from django import forms
 from exams.choices import *
+from LabEng import settings
 
 from .models import Patient, Exam, Report
 
@@ -76,6 +77,8 @@ class ReportForm(ModelForm):
         #widget=forms.TextInput(attrs={'readonly': 'readonly'})
     #)
 
+    realization_date =  forms.DateField(input_formats=settings.DATE_INPUT_FORMAT)
+
     diagnostic = forms.CharField(
         max_length=1000,
         required=False,
@@ -84,4 +87,4 @@ class ReportForm(ModelForm):
 
     class Meta:
         model = Report
-        fields = ['exam', 'medico', 'approved', 'realization_date', 'diagnostic', 'file']
+        fields = ['exam', 'medico', 'emmited', 'realization_date', 'diagnostic', 'file']
